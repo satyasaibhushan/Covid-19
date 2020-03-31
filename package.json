@@ -1,0 +1,23 @@
+{
+  "name": "covid",
+  "version": "1.0.0",
+  "description": "live data of covid infected ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "covid",
+    "api",
+    "covid",
+    "number"
+  ],
+  "author": "sai bhushan",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  }
+}

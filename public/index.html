@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="world-data"></div>
+      <div class="chart-container">
+        <div id="" class="charts">
+          <canvas id="chart" width="800" height="400"></canvas>
+        </div>
+        <div id="" class="charts">
+          <canvas id="chart2" width="800" height="400"></canvas>
+        </div>
+      </div>
+
+      <input type="text" id="country-name" name="cname" /><br /><br />
+      <div class="country-data"></div>
+      <div class="chart-container country">
+        <div id="chart-country" class="charts"></div>
+        <div id="chart2-country" class="charts"></div>
+      </div>
+    </header>
+    <script src="worldData.js"></script>
+    <script src="worldCharts.js"></script>
+    <script src="countryChart.js"></script>
+  </body>
+</html>
