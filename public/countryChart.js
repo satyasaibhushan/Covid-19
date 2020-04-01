@@ -39,23 +39,28 @@ Country_text.addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
     GetData(Country_text.value);
     Gettotals(Country_text.value);
+    Smoothscroll(".search-box",500)
+
   }
 });
 
+Country_text.addEventListener("click", function(e) {
+  Smoothscroll(".search-box",500)
+})
 function getCountryUrl(country) {
   return `https://corona.lmao.ninja/v2/historical/${country}`;
 }
 function getCountryUrltotal(country) {
   return `https://corona.lmao.ninja/countries/${country}`;
 }
-function GetChart(element, color, dates, count) {
+function GetChart(element, color, dates, count,label) {
   return new Chart(element, {
     type: "line",
     data: {
       labels: dates,
       datasets: [
         {
-          label: "# cases",
+          label: label,
           data: count,
           backgroundColor: [color],
           borderColor: ["#e74c3c"],
@@ -113,7 +118,7 @@ function GetData(Country_name) {
             entry.chart.getContext(),
             entry.bgColor,
             case_date,
-            case_data
+            case_data,entry.KeyName
           );
         }
       });
