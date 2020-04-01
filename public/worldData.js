@@ -7,15 +7,15 @@ let strings = [
     apiKeyName: "cases"
   },
   {
-    label: "Worldwide deaths",
+    label: "Worldwide Deaths",
     apiKeyName: "deaths"
   },
   {
-    label: "Recovered",
+    label: "Recovered Cases",
     apiKeyName: "recovered"
   },
   {
-    label: "Active cases",
+    label: "Active Cases",
     apiKeyName: "active"
   }
 ];
@@ -30,7 +30,9 @@ function createh(header, value, parent) {
       ${header} <span> : ${value}</span> 
     `;
     parent.append(obj);
+    console.log("if");
   } else {
+    console.log("else");
     clear(parent);
     createh(header, value, parent);
   }
