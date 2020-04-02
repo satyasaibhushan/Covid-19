@@ -22,11 +22,17 @@ function Smoothscroll(target, duration) {
     t--;
     return (-c / 2) * (t * (t - 2) - 1) + b;
   }
-  // animation();
-  // if(timeElapsed<duration){
-  //     requestAnimationFrame(animation);
-  // }
-  // console.log(targetPosition,startPosition,distance,startTime)
-  // if(distance>0)
   requestAnimationFrame(animation);
 }
+
+let topBtn = document.getElementsByClassName("gotop")[0];
+topBtn.addEventListener("click", function() {
+  Smoothscroll("#world_heading", 600);
+});
+window.onscroll = function() {
+  if (window.scrollY > 250) {
+    topBtn.classList.remove("hide");
+  } else {
+    topBtn.classList.add("hide");
+  }
+};

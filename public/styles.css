@@ -2,52 +2,62 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Comic Neue', cursive;
+}
+
+body {
+  background-color:  #d3d3d34d ;
 }
 
 .charts ,.charts2 {
   display: inline-block;
   position: relative;
-  height: 75vh;
-  width: 48vw;
-  padding: 10px 0 25px 0 ;
+  height: 70vh;
+  width: 40vw;
+  margin: 0 5vw 4vh 4vw;
+  padding: 1vh 0 7vh 0 ;
 }
 .charts2{
-  padding :10px 0px 0px 10px;
-  height: 70vh;
+  padding :1vh 0 0 0;
+  height: 65vh;
+  margin:0 5vw 0vh 4vw
 }
 #chart,
 #chart2,
 #chart-country,
 #chart-country {
   position: relative;
+
 }
 .world-data,
 .country-data {
-  margin:1vh 0 0 0;
-  height:15vh;
+  margin:1vh 0 8vh 0;
+  height:7vh;
   display: grid;
   grid-template-columns: 1fr  1fr;
 
 }.country-data{
   height:15vh;
-  margin: 0vh 3vh 0vh 3vh;
+  margin: 1vh 3vh 5vh 3vh;
 }
 
 .world-data div,
 .country-data div {
   justify-self: center;
-  font-size: 30px;
-  font-weight: 250;
-  padding: 1vh 0px 0px 10vh;
+  font-style:  italic;
+  font-size: 1.7vmax;
+  color: rgb(110, 110, 17);
+  /* font-weight: 1050; */
+  padding: 0vh 0 0 0vh;
   /* display: none; */
 }
-/* .world-data span,
-.country-data span {
-  font-size: 24px;
-} */
-/* #country-name {
-  display: none;
-} */
+.country-data div{
+  color: rgba(231, 29, 29, 0.815);
+}
+#Countrydiv{
+  position: absolute;
+  z-index: -1;
+}
 
 br {display:none}
 
@@ -58,11 +68,30 @@ br {display:none}
  justify-content: center;
  align-items: center;
  transform: translate(0%,-10%);
- text-decoration: underline;
+ color: rgb(204, 32, 75);
+ /* text-decoration: underline; */
  font-weight: 500;
  font: bold;
  text-transform: capitalize;
  padding: 1vh 0 0 0;
 } 
- 
+#country_heading{
+  transform: translate(0%,-40%);
+  color:rgb(212, 151, 37) ;
+}
+.gotop {
+  position: fixed;
+  bottom: 5vh;
+  right: 0.1vw;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50%;
+  color:#e74c3c;
+  font-size: 6vmin;
+  transition: all 1s ;
+}
+.hide{
+  opacity: 0; 
+  bottom: 0;
+}
 

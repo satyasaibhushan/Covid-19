@@ -2,7 +2,7 @@ let countryCharts = document.getElementsByClassName(
   "chart-container-country"
 )[0];
 
-let Country_text = document.getElementById("country-name");
+
 let Countries_list = [];
 
 GetData("china");
@@ -133,6 +133,5 @@ function Getcountries() {
         Countries_list[i] = element["country"];
       });
     });
-  // .then(console.log(Countries_list));
 }
 Getcountries();

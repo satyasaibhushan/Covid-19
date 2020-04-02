@@ -30,9 +30,7 @@ function createh(header, value, parent) {
       ${header} <span> : ${value}</span> 
     `;
     parent.append(obj);
-    console.log("if");
   } else {
-    console.log("else");
     clear(parent);
     createh(header, value, parent);
   }

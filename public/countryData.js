@@ -26,7 +26,7 @@ function Gettotals(Country_name) {
     .then(x =>
       Countrystrings.forEach(label => {
         let element = new Intl.NumberFormat().format(x[label.apiKeyName]);
-        console.log(element);
+        // console.log(element);
         createh(label.label, element, country);
       })
     );
