@@ -9,6 +9,40 @@ body {
   background-color:  #d3d3d34d ;
 }
 
+.loader{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader img{
+  height: 25vmin;
+  animation: rotate 1s ;
+  animation-iteration-count: infinite;
+}
+
+.loader.hidden{
+  animation: fadeOut 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotate{
+  100%{
+    transform: rotate(90deg);
+  }
+}
+@keyframes fadeOut{
+  100%{
+  opacity: 0;
+  visibility: hidden;
+  }
+}
+
 .charts ,.charts2 {
   display: inline-block;
   position: relative;
@@ -38,7 +72,7 @@ body {
 
 }.country-data{
   height:15vh;
-  margin: 1vh 3vh 5vh 3vh;
+  margin: 1vh 3vw 5vh 3vw;
 }
 
 .world-data div,
@@ -87,9 +121,37 @@ br {display:none}
   text-align: center;
   border-radius: 50%;
   color:#e74c3c;
-  font-size: 6vmin;
+  height: 4vmax;
   transition: all 1s ;
+  cursor: pointer;
 }
+
+@media screen and (max-width:1048px) and (min-width:768px){
+  .charts ,.charts2 {
+    display: block;
+    position: relative;
+    height: 40vh;
+    width: 70vw;
+    margin: 1vh 14vw 1vh 14vw;
+    padding: 0vh 0 0vh 0 ;
+  }
+  .charts2{
+    height: 38vh;
+  }
+  .world-data,
+  .country-data {
+    margin:0vh 0 0vh 0;
+    height:7vh;
+    display: grid;
+    grid-template-columns: 1fr  1fr;
+  
+  }.country-data{
+    height:8vh;
+    margin: 0vh 0vw 1vh 4vw;
+  }
+
+}
+
 .hide{
   opacity: 0; 
   bottom: 0;

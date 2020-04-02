@@ -18,6 +18,9 @@ let Countrystrings = [
   {
     label: "Today added Cases",
     apiKeyName: "todayCases"
+  },{
+    label:"Today added Deaths",
+    apiKeyName:"todayDeaths"
   }
 ];
 function Gettotals(Country_name) {

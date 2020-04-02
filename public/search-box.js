@@ -27,7 +27,8 @@ function clicked() {
     Gettotals(Country_text.value);
     Smoothscroll(".search-box", 500);
   } else {
-    alert("Please select a country from suggested")
+    alert("Please select a country from suggested");
+    // autocomplete(document.getElementById("country-name"), Countries_list);
   }
 }
 
@@ -60,6 +61,7 @@ function autocomplete(inp, arr) {
           e.preventDefault();
           inp.value = this.getElementsByTagName("input")[0].value;
           closeAllLists();
+          clicked();
         });
         a.appendChild(b);
       }
@@ -73,7 +75,7 @@ function autocomplete(inp, arr) {
       /*If the arrow DOWN key is pressed,increase the currentFocus variable:*/
       currentFocus++;
       addActive(x);
-    } else if (e.keyCode == 38) { 
+    } else if (e.keyCode == 38) {
       currentFocus--;
       addActive(x);
     } else if (e.keyCode == 13) {
@@ -81,18 +83,19 @@ function autocomplete(inp, arr) {
       if (currentFocus > -1) {
         if (x) x[currentFocus].click();
         // clicked();
+      } else { //for closing of suggestions if value entered is a country
+        if (SearchArray(inp.value, arr) != -1) closeAllLists(e.target);
       }
-      clicked()
-
+      clicked();
     }
-});
+  });
 
   function addActive(x) {
     /*a function to classify an item as "active":*/
     if (!x) return false;
     removeActive(x);
     if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
+    if (currentFocus < 0) currentFocus = x.length - 1;
     x[currentFocus].classList.add("autocomplete-active");
   }
   function removeActive(x) {
@@ -105,15 +108,15 @@ function autocomplete(inp, arr) {
     /*close all autocomplete lists in the document, except the one passed as an argument:*/
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) {
-      x[i].parentNode.removeChild(x[i]);
+      if (elmnt != x[i]) {
+        x[i].parentNode.removeChild(x[i]);
+      }
     }
   }
-}
- document.addEventListener("click", function (e) {
-  closeAllLists(e.target);
-  // e.preventDefault();
- });
+  document.addEventListener("click", function(e) {
+    closeAllLists(e.target);
+    // e.preventDefault();
+  });
 }
 
-autocomplete(document.getElementById("country-name"),Countries_list)
+autocomplete(document.getElementById("country-name"), Countries_list);

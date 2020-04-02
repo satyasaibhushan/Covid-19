@@ -1,3 +1,8 @@
+window.addEventListener('load',function(){
+  let loader = document.getElementsByClassName('loader')[0];
+  loader.classList.add('hidden');
+})
+
 function Smoothscroll(target, duration) {
   var target = document.querySelector(target);
   var targetPosition = target.getBoundingClientRect().top;

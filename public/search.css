@@ -25,7 +25,7 @@
   color: white;
   cursor: pointer;
 }
-.search-btn > i {
+.search-btn > img {
   font-size: 23px;
 }
 #country-name {

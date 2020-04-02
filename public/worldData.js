@@ -24,7 +24,7 @@ function clear(parent) {
 }
 
 function createh(header, value, parent) {
-  if (parent.children.length <= 4) {
+  if (parent.children.length <= 5) {
     let obj = document.createElement("div");
     obj.innerHTML = `
       ${header} <span> : ${value}</span> 
