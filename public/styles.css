@@ -8,6 +8,9 @@
 body {
   background-color:  #d3d3d34d ;
 }
+header{
+  height: 103vh;
+}
 
 .loader{
   position: fixed;
@@ -48,7 +51,7 @@ body {
   position: relative;
   height: 70vh;
   width: 40vw;
-  margin: 0 5vw 4vh 4vw;
+  margin: 0 5vw 14vh 4vw;
   padding: 1vh 0 7vh 0 ;
 }
 .charts2{
@@ -72,7 +75,7 @@ body {
 
 }.country-data{
   height:15vh;
-  margin: 1vh 3vw 5vh 3vw;
+  margin: 0vh 3vw 5vh 3vw;
 }
 
 .world-data div,
@@ -126,17 +129,26 @@ br {display:none}
   cursor: pointer;
 }
 
-@media screen and (max-width:1048px) and (min-width:768px){
+.hide{
+  opacity: 0; 
+  bottom: 0;
+}
+
+
+@media screen and (max-width:1128px) and (min-width:768px){
+  header{
+    height:115vh
+  }
   .charts ,.charts2 {
     display: block;
     position: relative;
-    height: 40vh;
+    height: 50vh;
     width: 70vw;
     margin: 1vh 14vw 1vh 14vw;
     padding: 0vh 0 0vh 0 ;
   }
   .charts2{
-    height: 38vh;
+    height: 50vh;
   }
   .world-data,
   .country-data {
@@ -149,11 +161,9 @@ br {display:none}
     height:8vh;
     margin: 0vh 0vw 1vh 4vw;
   }
+  #Countrydiv{
+    padding:3vh 0 0 0
+  }
 
-}
-
-.hide{
-  opacity: 0; 
-  bottom: 0;
 }
 

@@ -7,6 +7,11 @@
     of COVID19 infected people ,deaths,recovered and their graphs for all over world and all countries ">
     <title>COVID 19-charts and data</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"
+    integrity="sha256-3arngJBQR3FTyeRtL3muAGFaGcL8iHsubYOqq48mBLw="
+    crossorigin="anonymous"
+  ></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,700;1,400&display=swap"
       rel="stylesheet"
@@ -31,8 +36,9 @@
         </div>
       </div>
 
-      <div class="search-box">
-        <label for="search">
+      <div class="search-box close">
+        <img src="/src/leftarrow.svg" class="leftarrow arrow open "alt="open-search-box">
+        <label for="search" class="label">
           <input
             placeholder="Search Country name"
             type="text"
@@ -42,7 +48,9 @@
         <a class="search-btn">
           <img src="./src/search.svg" alt="serach button" />
         </a>
+        <img src="/src/rightarrow.svg" class="rightarrow arrow close "alt="close-search-box">
       </div>
+    </header>
       <div id="Countrydiv">
         <h1 id="country_heading"></h1>
         <div class="country-data"></div>
@@ -53,15 +61,16 @@
       </div>
       <a>
         <abbr title="Click to go to top">
-          <img src="src/arrow.svg" class="gotop hide" alt="">
+          <img src="src/arrow.svg" class="gotop hide" alt="go up">
         </abbr>
       </a>
-    </header>
     <script src="worldData.js"></script>
     <script src="worldCharts.js"></script>
     <script src="scroll.js"></script>
     <script src="countryData.js"></script>
     <script src="countryChart.js"></script>
     <script src="search-box.js"></script>
+    <script src="searchbar-animation.js"></script>
+
   </body>
 </html>

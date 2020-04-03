@@ -1,15 +1,27 @@
 let Country_text = document.getElementById("country-name");
 let Search_btn = document.getElementsByClassName("search-btn")[0];
+let Search_box = document.getElementsByClassName("search-box")[0];
 Country_text.addEventListener("keypress", function(e) {
   if (e.key === "Enter") clicked();
 });
 
 Country_text.addEventListener("click", function(e) {
-  Smoothscroll(".search-box", 500);
+  Smoothscroll("#Countrydiv", 800);
 });
 
-Search_btn.addEventListener("click", clicked);
+Search_btn.addEventListener("click",function(e){
+  if (Search_box.classList.contains("open"))
+  clicked();
+  else {
+    Search_box.classList.add("open");
+  modifySearchBox();
+  }
+})
 
+Country_text.addEventListener('blur',function(e){
+  Search_box.classList.remove("open");
+  modifySearchBox();
+})
 function SearchArray(element, array) {
   var len = array.length,
     str = element.toLowerCase();
@@ -25,7 +37,7 @@ function clicked() {
   if (SearchArray(Country_text.value, Countries_list) != -1) {
     GetData(Country_text.value);
     Gettotals(Country_text.value);
-    Smoothscroll(".search-box", 500);
+    Smoothscroll("#Countrydiv", 750);
   } else {
     alert("Please select a country from suggested");
     // autocomplete(document.getElementById("country-name"), Countries_list);
