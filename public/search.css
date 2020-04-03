@@ -126,31 +126,5 @@
     transform: translate(-50%, 20%);
   }
 
-  .arrow {
-    display: none;
-    height: 40px;
-    background-color: #50b8e7;
-    width: 20px;
-    border-radius: 31%;
-  }
-  .open img.open {
-    display: initial;
-    position: absolute;
-    /* right:39px; */
-  }
-  .close img.close {
-    display: initial;
-    position: absolute;
-    /* left: 39px; */
-  }
-  .arrow:hover {
-    width:30px;
-    height:60px;
-    background-color:#50b7e783 ;
-  }
-  .leftarrow:hover {
-    width:27px;
-    height:55px;
-    background-color:#50b7e783 ;
-  }
+  
 }

@@ -10,8 +10,10 @@ Country_text.addEventListener("click", function(e) {
 });
 
 Search_btn.addEventListener("click",function(e){
-  if (Search_box.classList.contains("open"))
+  if (Search_box.classList.contains("open")){
   clicked();
+  Country_text.focus();
+}
   else {
     Search_box.classList.add("open");
   modifySearchBox();
