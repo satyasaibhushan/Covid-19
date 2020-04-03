@@ -1,7 +1,11 @@
+let isTab = 768 < window.innerWidth && window.innerWidth < 1128;
+
 let Country_text = document.getElementById("country-name");
 let Search_btn = document.getElementsByClassName("search-btn")[0];
-let Search_box = document.getElementsByClassName("search-box")[0];
+Search_box.modifySearchBox(true && !isTab);
+
 Country_text.addEventListener("keypress", function(e) {
+  console.log("key pressed..");
   if (e.key === "Enter") clicked();
 });
 
@@ -9,21 +13,20 @@ Country_text.addEventListener("click", function(e) {
   Smoothscroll("#Countrydiv", 800);
 });
 
-Search_btn.addEventListener("click",function(e){
-  if (Search_box.classList.contains("open")){
-  clicked();
-  Country_text.focus();
-}
+Search_btn.addEventListener("click", function(e) {
+  if (Search_box.isOpened) clicked();
   else {
-    Search_box.classList.add("open");
-  modifySearchBox();
+    Search_box.modifySearchBox(true);
   }
-})
+});
 
-Country_text.addEventListener('blur',function(e){
-  Search_box.classList.remove("open");
-  modifySearchBox();
-})
+Search_box.addEventListener("focusout", function(e) {
+  setTimeout(() => {
+    Search_box.modifySearchBox(false);
+  }, 2000);
+  
+});
+
 function SearchArray(element, array) {
   var len = array.length,
     str = element.toLowerCase();
@@ -97,7 +100,8 @@ function autocomplete(inp, arr) {
       if (currentFocus > -1) {
         if (x) x[currentFocus].click();
         // clicked();
-      } else { //for closing of suggestions if value entered is a country
+      } else {
+        //for closing of suggestions if value entered is a country
         if (SearchArray(inp.value, arr) != -1) closeAllLists(e.target);
       }
       clicked();

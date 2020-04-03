@@ -1,5 +1,9 @@
-function modifySearchBox() {
-  if (Search_box.classList.contains("open")) {
+let Search_box = document.getElementsByClassName("search-box")[0];
+
+Search_box.modifySearchBox = function(toOpen) {
+  if (this.isOpened == toOpen) return;
+  this.isOpened = toOpen;
+  if (toOpen) {
     var tl = gsap.timeline();
 
     tl.fromTo(
@@ -15,6 +19,7 @@ function modifySearchBox() {
     );
 
     Country_text.focus();
+    Search_box.onOpened()
   } else {
     var tl = gsap.timeline();
 
@@ -30,4 +35,5 @@ function modifySearchBox() {
     );
   }
 }
-modifySearchBox();
+
+Search_box.onOpened = () => {}

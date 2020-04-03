@@ -17,7 +17,7 @@
   /* width: 30px; */
   height: 30px;
   border-radius: 7px;
-  background: #50b8e7;
+  /* background: #50b8e7; */
   transform: translate(-25%, 20%);
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@
   outline: none;
   float: left;
   padding: 0;
-  background: #50b8e7;
+  /* background: #50b8e7; */
   color: white;
   font-size: 16px;
   /* transition: 0.4s; */
