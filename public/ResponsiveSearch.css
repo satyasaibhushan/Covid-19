@@ -1,0 +1,108 @@
+
+  @media screen and (max-width: 1128px) and (min-width: 320px){
+    .search-box {
+      position: fixed;
+      top: 8%;
+      left: 97%;
+      transform: translate(-100%, -30%);
+      width: 35%;
+      /* transition: ease-in-out 4s; */
+      padding: 0;
+      background-color: transparent;
+      
+    }
+    #country-name {
+      width: 85%;
+      font-size: 3vmin;
+      border-bottom:1px ridge grey;
+       line-height:20px;
+       padding:0 1px 0 0 ;
+       color: grey;
+      /* transition: 0s; */
+    }
+     
+    .search-btn > img {
+    display:none;
+   }
+   .search-btn .search-icon2{
+    display:initial;
+   } 
+    ::placeholder {
+      /* font-family: sans-serif; */
+      font-style: italic;
+      color: rgb(179, 177, 177);
+      opacity: 0.6;
+     
+    }
+    .search-btn {
+      transform: translate(-50%, -10%);
+    
+    }  
+  
+  
+    .autocomplete-items {
+      border: 0px solid #d4d4d4;
+      border-radius: 7px;
+      top: 54%;
+      max-height: 20vh;
+    }
+    .autocomplete-items::-webkit-scrollbar-track {
+      --webkit-box-shadow: inset 0 0 6px #4fc3f7;
+      border-radius: 10px;
+      background-color: #f5f5f5;
+    }
+    
+    .autocomplete-items::-webkit-scrollbar {
+      width: 12px;
+      background-color: #f5f5f5;
+    }
+    
+    .autocomplete-items::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      --webkit-box-shadow: inset 0 0 6px 98883a;
+      background-color: rgba(167, 163, 163, 0.411);
+    }
+    
+    .autocomplete-items div {
+      padding: 7px;
+      background-color: rgba(189, 186, 186, 0.89);
+      border-bottom: 1px solid #d4d4d4;
+      color: #244765;
+    }
+  }
+  
+
+  @media screen and (max-width: 1128px) and (min-width: 580px) {
+    .search-box {
+      position: fixed;
+      top: 2%;
+      left: 97%;
+      transform: translate(-100%, -30%);
+      /* width: 4%; */
+      /* transition: ease-in-out 4s; */
+      padding: 0;
+    }
+    
+  }
+
+  @media screen and (max-device-height:580px) and (min-device-height:320px){
+    .search-box {
+        position: fixed;
+        top: 12%;
+        left: 97%;
+        transform: translate(-100%, -30%);
+        width: 17%;
+        /* transition: ease-in-out 4s; */
+        padding: 0;
+      }
+      #country-name {
+        width: 85%;
+        font-size: 1.5vmax;
+        border-bottom:1px ridge grey;
+         line-height:21px;
+         padding:0 1px 0 0 ;
+         color: grey;
+        /* transition: 0s; */
+      }
+
+  }

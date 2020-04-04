@@ -42,14 +42,16 @@ fetch("https://corona.lmao.ninja/v2/historical/all")
             data: Object.values(x.cases),
             backgroundColor: ["rgba(255, 99, 132, 0.2)"],
             borderColor: ["#e74c3c"],
-            borderWidth: 1
+            borderWidth: 1,
+            pointHitRadius:30
           },
           {
             label: "# of deaths",
             data: Object.values(x.deaths),
             backgroundColor: ["#3498db"],
             borderColor: ["#2980b9"],
-            borderWidth: 1
+            borderWidth: 1,
+            pointHitRadius:10
           }
         ]
       },
@@ -65,7 +67,8 @@ fetch("https://corona.lmao.ninja/v2/historical/all")
             data: Object.values(x.deaths),
             backgroundColor: ["#3498db"],
             borderColor: ["#2980b9"],
-            borderWidth: 1
+            borderWidth: 1,
+            pointHitRadius:30
           }
         ]
       },

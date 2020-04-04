@@ -1,0 +1,113 @@
+@media screen and (max-width:1128px) and (min-width:580px){
+    header{
+      height:115vh
+    }
+    .charts ,.charts2 {
+      display: block;
+      position: relative;
+      height: 50vh;
+      width: 70vw;
+      margin: 1vh 14vw 1vh 14vw;
+      padding: 0vh 0 0vh 0 ;
+    }
+    .charts2{
+      height: 50vh;
+    }
+    .world-data,
+    .country-data {
+      margin:0vh 0 0vh 0;
+      height:7vh;
+      display: grid;
+      grid-template-columns: 1fr  1fr;
+    
+    }.country-data{
+      height:8vh;
+      margin: 0vh 0vw 1vh 4vw;
+    }
+    #Countrydiv{
+      padding:3vh 0 0 0
+    }
+  
+  }
+  
+  @media screen and (max-device-height:580px) and (min-device-height:320px){
+    header{
+      height:190vh;
+      padding: 0 0 1vh 0;
+      border-bottom: 0.7vh double grey;
+    }
+    .charts ,.charts2 {
+      display: block;
+      position: relative;
+      height: 80vh;
+      width: 80vw;
+      margin: 1vh 4vw 2vh 10vw;
+      padding: 0vh 0 0vh 0 ;
+    }
+    .charts2{
+      /* height: 50vh; */
+    }
+    .world-data,
+    .country-data {
+      margin:4vh 0 6vh 0;
+      height:7vh;
+      display: grid;
+      grid-template-columns: 1fr  1fr;
+    
+    }.country-data{
+      height:8vh;
+      margin: 0vh 0vw 1vh 4vw;
+    }
+    .world-data div,.country-data div{
+      font-size: 4.5vmin;
+    }
+  
+    #Countrydiv{
+      padding:3vh 0 0 0
+    }
+    .gotop {
+      right:3vw;
+      height: 8vmin;
+    }
+  }
+
+  @media screen and (max-device-width:580px) and (min-device-width:320px) and (orientation : portrait){
+    header{
+      height:123vh;
+      padding: 0 0 1vh 0;
+      border-bottom: 0.7vh double grey;
+    }
+    .charts ,.charts2 {
+      display: block;
+      position: relative;
+      height: 50vh;
+      width: 90vw;
+      margin: 1vh 4vw 2vh 4vw;
+      padding: 0vh 0 0vh 0 ;
+    }
+    .charts2{
+      height: 50vh;
+    }
+    .world-data,
+    .country-data {
+      margin:4vh 0 2vh 0;
+      height:7vh;
+      display: grid;
+      grid-template-columns: 1fr  1fr;
+    
+    }.country-data{
+      height:8vh;
+      margin: 0vh 0vw 1vh 4vw;
+    }
+    .world-data div,.country-data div{
+      font-size: 3.5vmin;;
+    }
+  
+    #Countrydiv{
+      padding:3vh 0 0 0
+    }
+    .gotop {
+      right:3vw;
+      height: 8vmin;
+    }
+  }

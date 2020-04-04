@@ -1,12 +1,10 @@
-let isTab = 768 < window.innerWidth && window.innerWidth < 1128;
 
-let Country_text = document.getElementById("country-name");
 let Search_btn = document.getElementsByClassName("search-btn")[0];
-Search_box.modifySearchBox(true && !isTab);
 
 Country_text.addEventListener("keypress", function(e) {
   console.log("key pressed..");
   if (e.key === "Enter") clicked();
+  
 });
 
 Country_text.addEventListener("click", function(e) {
@@ -16,15 +14,8 @@ Country_text.addEventListener("click", function(e) {
 Search_btn.addEventListener("click", function(e) {
   if (Search_box.isOpened) clicked();
   else {
-    Search_box.modifySearchBox(true);
+    // Search_box.modifySearchBox(true);
   }
-});
-
-Search_box.addEventListener("focusout", function(e) {
-  setTimeout(() => {
-    Search_box.modifySearchBox(false);
-  }, 2000);
-  
 });
 
 function SearchArray(element, array) {
@@ -43,6 +34,7 @@ function clicked() {
     GetData(Country_text.value);
     Gettotals(Country_text.value);
     Smoothscroll("#Countrydiv", 750);
+    Country_text.blur();
   } else {
     alert("Please select a country from suggested");
     // autocomplete(document.getElementById("country-name"), Countries_list);

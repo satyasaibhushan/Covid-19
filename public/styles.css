@@ -89,7 +89,7 @@ header{
   /* display: none; */
 }
 .country-data div{
-  color: rgba(231, 29, 29, 0.815);
+  color: rgb(94, 93, 93);
 }
 #Countrydiv{
   position: absolute;
@@ -135,35 +135,6 @@ br {display:none}
 }
 
 
-@media screen and (max-width:1128px) and (min-width:768px){
-  header{
-    height:115vh
-  }
-  .charts ,.charts2 {
-    display: block;
-    position: relative;
-    height: 50vh;
-    width: 70vw;
-    margin: 1vh 14vw 1vh 14vw;
-    padding: 0vh 0 0vh 0 ;
-  }
-  .charts2{
-    height: 50vh;
-  }
-  .world-data,
-  .country-data {
-    margin:0vh 0 0vh 0;
-    height:7vh;
-    display: grid;
-    grid-template-columns: 1fr  1fr;
-  
-  }.country-data{
-    height:8vh;
-    margin: 0vh 0vw 1vh 4vw;
-  }
-  #Countrydiv{
-    padding:3vh 0 0 0
-  }
 
-}
+
 

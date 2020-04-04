@@ -2,7 +2,6 @@ let countryCharts = document.getElementsByClassName(
   "chart-container-country"
 )[0];
 
-
 let Countries_list = [];
 
 GetData("china");
@@ -52,7 +51,8 @@ function GetChart(element, color, dates, count, label) {
           data: count,
           backgroundColor: [color],
           borderColor: ["#e74c3c"],
-          borderWidth: 1
+          borderWidth: 1,
+          pointHitRadius:30
         }
       ]
     },

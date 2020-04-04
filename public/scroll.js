@@ -3,7 +3,9 @@ window.addEventListener('load',function(){
   loader.classList.add('hidden');
 })
 
-function Smoothscroll(target, duration) {
+async function Smoothscroll(target, duration) {
+  await waitFor(200)
+  
   var target = document.querySelector(target);
   var targetPosition = target.getBoundingClientRect().top;
   var startPosition = window.pageYOffset;
@@ -41,3 +43,9 @@ window.onscroll = function() {
     topBtn.classList.add("hide");
   }
 };
+
+function waitFor(time) {
+  return new Promise((resolve,_) => {
+    setTimeout(resolve, time);
+  })
+}
