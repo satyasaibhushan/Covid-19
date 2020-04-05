@@ -1,5 +1,8 @@
 
 let Search_btn = document.getElementsByClassName("search-btn")[0];
+let Search_box = document.getElementsByClassName("search-box")[0];
+let Country_text = document.getElementById("country-name");
+
 
 Country_text.addEventListener("keypress", function(e) {
   console.log("key pressed..");

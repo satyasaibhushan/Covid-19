@@ -38,9 +38,9 @@ topBtn.addEventListener("click", function() {
 });
 window.onscroll = function() {
   if (window.scrollY > 250) {
-    topBtn.classList.remove("hide");
+    topBtn.classList.remove("hidebtn");
   } else {
-    topBtn.classList.add("hide");
+    topBtn.classList.add("hidebtn");
   }
 };
 

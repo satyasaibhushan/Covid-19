@@ -1,6 +1,6 @@
 @media screen and (max-width:1128px) and (min-width:580px){
     header{
-      height:115vh
+      /* height:115vh */
     }
     .charts ,.charts2 {
       display: block;
@@ -32,7 +32,7 @@
   
   @media screen and (max-device-height:580px) and (min-device-height:320px){
     header{
-      height:190vh;
+      /* height:190vh; */
       padding: 0 0 1vh 0;
       border-bottom: 0.7vh double grey;
     }
@@ -43,9 +43,6 @@
       width: 80vw;
       margin: 1vh 4vw 2vh 10vw;
       padding: 0vh 0 0vh 0 ;
-    }
-    .charts2{
-      /* height: 50vh; */
     }
     .world-data,
     .country-data {
@@ -73,7 +70,7 @@
 
   @media screen and (max-device-width:580px) and (min-device-width:320px) and (orientation : portrait){
     header{
-      height:123vh;
+      /* height:123vh; */
       padding: 0 0 1vh 0;
       border-bottom: 0.7vh double grey;
     }
@@ -111,3 +108,8 @@
       height: 8vmin;
     }
   }
+  @media screen and (max-width:580px) and (min-device-width:580px){
+  body  {
+      display:none;
+  }
+}

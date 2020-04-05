@@ -9,7 +9,7 @@ body {
   background-color:  #d3d3d34d ;
 }
 header{
-  height: 103vh;
+  /* height: 102vh; */
 }
 
 .loader{
@@ -49,10 +49,10 @@ header{
 .charts ,.charts2 {
   display: inline-block;
   position: relative;
-  height: 70vh;
+  height: 75vh;
   width: 40vw;
-  margin: 0 5vw 14vh 4vw;
-  padding: 1vh 0 7vh 0 ;
+  margin: 0 5vw 0vh 4vw;
+  padding: 1vh 0 3vh 0 ;
 }
 .charts2{
   padding :1vh 0 0 0;
@@ -114,6 +114,7 @@ br {display:none}
 } 
 #country_heading{
   transform: translate(0%,-40%);
+  margin-top: 1vh;
   color:rgb(212, 151, 37) ;
 }
 .gotop {
@@ -129,9 +130,13 @@ br {display:none}
   cursor: pointer;
 }
 
-.hide{
+.hidebtn{
   opacity: 0; 
   bottom: 0;
+}
+.hide{
+  display: none!important;
+  z-index: -2;
 }
 
 
