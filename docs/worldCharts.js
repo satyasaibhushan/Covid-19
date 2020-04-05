@@ -151,7 +151,7 @@ fetch("https://corona.lmao.ninja/v2/historical/all")
         entry.KeyName.charAt(0).toUpperCase() + entry.KeyName.slice(1)
       );
     })}).catch(function(err){console.log(err)})
-    ).catch(function(err){alert('unable to reach servers')})
+    ).catch(function(err){console.error})
   
 
 function changeDate(a) {
