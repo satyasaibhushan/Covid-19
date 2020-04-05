@@ -32,7 +32,7 @@ function Gettotals(Country_name) {
         // console.log(element);
         createh(label.label, element, country);
       })
-    );
+    ).catch(console.log)
   setHeading(Country_name);
 }
 

@@ -26,17 +26,21 @@ let dataStruct = [
     title: "Countrywide Cases",
     chart: casesChart,
     chart2:CountryCasesDiffChart,
-    bgColor: "rgba(255, 99, 132, 0.2)",
+    bgColor: colors[0],
+    bgColor2:colors[2],
     postive: true,
     label2:"cases incerase per day",
+    Ylabel2:'Cases increase',
     KeyName: "cases"
   },
   {
     title: "Countrywide deaths",
     chart: deathChart,
     chart2:CountryDeathsDiffChart,
-    bgColor: "#3498db",
+    bgColor: colors[1],
+    bgColor2:colors[3],
     label2:"deaths incerase per day",
+    Ylabel2:'Deaths increase',
     KeyName: "deaths"
   },
   {
@@ -50,9 +54,8 @@ let dataStruct = [
 
 function GetData(Country_name) {
   fetch(getCountryUrl(Country_name))
-    .then(res =>
-      res.json()
-        .then(res => {
+    .then(res =>res.json()
+    .then(res => {
           if (res["country"]) return res;
           else if (res["message"]) {
             alert(res["message"]);
@@ -78,18 +81,22 @@ function GetData(Country_name) {
               entry.chart2.clearCanvas();
               var dates= case_date.map(changeDate)
               GetChart(
+                "line",
                 entry.chart.getContext(),
                 entry.bgColor,
                 dates,
                 case_data,
-                entry.KeyName
+                entry.KeyName,
+                entry.KeyName.charAt(0).toUpperCase() + entry.KeyName.slice(1)
               );
               GetChart(
+                "bar",
                 entry.chart2.getContext(),
-                entry.bgColor,
+                entry.bgColor2,
                 dates.slice(1,dates.length),
                 caseDiff_data,
-                entry.label2
+                entry.label2,
+                entry.Ylabel2
               );
             }
           });
@@ -100,11 +107,13 @@ function GetData(Country_name) {
 
 function Getcountries() {
   fetch("https://corona.lmao.ninja/countries")
-    .then(res => res.json())
+    .then(res => res.json()
     .then(x => {
       x.forEach((element, i) => {
         Countries_list[i] = element["country"];
-      });
-    });
+      })
+    }).catch(function(err){ console.error})
+    ).catch(function(err){alert('unable to reach server')})
+    
 }
 Getcountries();

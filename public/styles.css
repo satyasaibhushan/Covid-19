@@ -69,7 +69,7 @@ header{
 .world-data,
 .country-data {
   margin:1vh 0 8vh 0;
-  height:7vh;
+  height:10vh;
   display: grid;
   grid-template-columns: 1fr  1fr;
 
@@ -83,9 +83,9 @@ header{
   justify-self: center;
   font-style:  italic;
   font-size: 1.7vmax;
-  color: rgb(110, 110, 17);
+  color: rgb(94, 93, 93);
   /* font-weight: 1050; */
-  padding: 0vh 0 0 0vh;
+  /* padding: 0vh 0 0 0vh; */
   /* display: none; */
 }
 .country-data div{
@@ -105,7 +105,7 @@ br {display:none}
  justify-content: center;
  align-items: center;
  transform: translate(0%,-10%);
- color: rgb(204, 32, 75);
+ color: rgb(214, 104, 94);
  /* text-decoration: underline; */
  font-weight: 500;
  font: bold;

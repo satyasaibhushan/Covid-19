@@ -1,13 +1,13 @@
 .search-box {
-  position: relative;
-  top: 50%;
-  left: 50%;
+  position: fixed;
+  top: 5%;
+  left: 90%;
   transform: translate(-50%, -50%);
-  background: #50b8e7;
+  background: transparent;
   height: 40px;
   border-radius: 7px;
   padding: 0 10px;
-  width: 300px;
+  width: 19%;
   white-space: nowrap;
   z-index: 9;
 }
@@ -18,7 +18,7 @@
   height: 30px;
   border-radius: 7px;
   /* background: #50b8e7; */
-  transform: translate(-25%, 20%);
+  transform: translate(-25%, 10%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,29 +28,32 @@
 }
 .search-btn > img {
   height: 3vmin;
+  display: none;
 }
 .search-btn .search-icon2{
-  display:none
+  display:initial
 }
 #country-name {
   border: none;
   background: none;
   outline: none;
   float: left;
-  padding: 0;
+  padding: 0 0% 0 0;
   /* background: #50b8e7; */
-  color: white;
-  font-size: 16px;
+  color: grey;
+  font-size: 1.4vmax;
+  border-bottom:1px ridge rgb(19, 62, 119);
   /* transition: 0.4s; */
-  line-height: 40px;
-  width: 250px;
+  line-height: 30px;
+  width: 85% ;
   font-weight: bold;
   z-index: -2;
   transform: translate(5%, 0);
 }
 ::placeholder {
-  color: aliceblue;
-  opacity: 0.75;
+  font-style: italic;
+  color: rgb(179, 177, 177);
+  opacity: 0.7;
 }
 .label:hover > ::placeholder {
   color: #50b8e7;

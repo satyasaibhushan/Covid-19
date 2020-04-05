@@ -5,7 +5,6 @@ let Country_text = document.getElementById("country-name");
 
 
 Country_text.addEventListener("keypress", function(e) {
-  console.log("key pressed..");
   if (e.key === "Enter") clicked();
   
 });
