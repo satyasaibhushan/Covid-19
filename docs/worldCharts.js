@@ -91,14 +91,14 @@ let WorldDataStruct = [
     chart: WorldCasesDiffChart,
     bgColor: colors[2],
     postive: true,
-    label: "#of cases increase per day",
+    label: "#of cases per day",
     KeyName: "cases",
   },
   {
     title: "Worldwide Deaths increase per day",
     chart: WorldDeathsDiffChart,
     bgColor: colors[3],
-    label: "#of deaths increase per day",
+    label: "#of deaths per day",
     KeyName: "deaths",
   },
 ];

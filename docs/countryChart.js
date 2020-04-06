@@ -29,7 +29,7 @@ let dataStruct = [
     bgColor: colors[0],
     bgColor2:colors[2],
     postive: true,
-    label2:"cases incerase per day",
+    label2:"cases per day",
     Ylabel2:'Cases increase',
     KeyName: "cases"
   },
@@ -39,7 +39,7 @@ let dataStruct = [
     chart2:CountryDeathsDiffChart,
     bgColor: colors[1],
     bgColor2:colors[3],
-    label2:"deaths incerase per day",
+    label2:"deaths per day",
     Ylabel2:'Deaths increase',
     KeyName: "deaths"
   },

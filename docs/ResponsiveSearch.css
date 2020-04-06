@@ -5,7 +5,7 @@
       top: 8%;
       left: 97%;
       transform: translate(-100%, -30%);
-      width: 35%;
+      width: 37%;
       /* transition: ease-in-out 4s; */
       padding: 0;
       background-color: transparent;
@@ -32,7 +32,7 @@
       font-style: italic;
       color: rgb(179, 177, 177);
       opacity: 0.6;
-     
+      font-size:2.5vw;
     }
     .search-btn {
       transform: translate(-50%, -10%);
@@ -45,22 +45,6 @@
       border-radius: 7px;
       top: 54%;
       max-height: 20vh;
-    }
-    .autocomplete-items::-webkit-scrollbar-track {
-      --webkit-box-shadow: inset 0 0 6px #4fc3f7;
-      border-radius: 10px;
-      background-color: #f5f5f5;
-    }
-    
-    .autocomplete-items::-webkit-scrollbar {
-      width: 12px;
-      background-color: #f5f5f5;
-    }
-    
-    .autocomplete-items::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      --webkit-box-shadow: inset 0 0 6px 98883a;
-      background-color: rgba(167, 163, 163, 0.411);
     }
     
     .autocomplete-items div {
@@ -75,10 +59,10 @@
   @media screen and (max-width: 1128px) and (min-width: 580px) {
     .search-box {
       position: fixed;
-      top: 2%;
+      top: 8%;
       left: 97%;
       transform: translate(-100%, -30%);
-      /* width: 4%; */
+      width: 30vw;
       /* transition: ease-in-out 4s; */
       padding: 0;
     }
@@ -88,10 +72,10 @@
   @media screen and (max-device-height:580px) and (min-device-height:320px){
     .search-box {
         position: fixed;
-        top: 12%;
+        top: 15%;
         left: 97%;
         transform: translate(-100%, -30%);
-        width: 17%;
+        width: 19%;
         /* transition: ease-in-out 4s; */
         padding: 0;
       }
@@ -104,5 +88,6 @@
          color: grey;
         /* transition: 0s; */
       }
+
 
   }

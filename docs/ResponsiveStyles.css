@@ -1,7 +1,7 @@
 @media screen and (max-width:1128px) and (min-width:580px){
-    header{
-      /* height:115vh */
-    }
+    /* header{
+      height:115vh
+    } */
     .charts ,.charts2 {
       display: block;
       position: relative;
@@ -27,10 +27,29 @@
     #Countrydiv{
       padding:3vh 0 0 0
     }
-  
+    .sticker{
+      height: 6vh;
+    }
   }
   
   @media screen and (max-device-height:580px) and (min-device-height:320px){
+    
+    .sticker{
+      height: 7.5vh;
+      width:22vw;
+
+    }
+    .title{
+      top: 0.23vh;
+      font-size: 2vw;
+      /* left: 1vw; */
+    }
+    .subtitle{
+      top: 3.7vh;
+      font-size: 1.5vw;
+      left:11vw;
+
+    }
     header{
       /* height:190vh; */
       padding: 0 0 1vh 0;
@@ -66,9 +85,30 @@
       right:3vw;
       height: 8vmin;
     }
+    .footer{
+      height:13vh;
+      padding: 1vh 0 1vh 0;
+      width: 100vw;
+      column-gap: 10px;
+    }   
   }
 
   @media screen and (max-device-width:580px) and (min-device-width:320px) and (orientation : portrait){
+    .sticker{
+      height: 4.5vh;
+      width:45vw;
+
+    }
+    .title{
+      top: 0.23vh;
+      font-size: 2.5vh;
+    }
+    .subtitle{
+      top: 2.6vh;
+      font-size: 1.7vh;
+      left:20vw;
+
+    }
     header{
       /* height:123vh; */
       padding: 0 0 1vh 0;
@@ -106,6 +146,16 @@
     .gotop {
       right:3vw;
       height: 8vmin;
+    }
+    .footer{
+      font-size: 2vh;
+      /* grid-template-columns: 5fr  2fr 1fr 2fr 5fr; */
+      /* grid-gap: 10px; */
+      grid-template-columns: 13fr 1fr 1fr 1fr 3fr;
+      column-gap: 10px;
+    }
+    .footer a img{
+      height: 30px;
     }
   }
   @media screen and (max-width:580px) and (min-device-width:580px){
