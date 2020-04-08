@@ -36,13 +36,10 @@ function createh(header, value, parent) {
   }
 }
 
-fetch("https://corona.lmao.ninja/all")
-  .then(response => response.json()
-  .then(data =>
+api.getWorldData().then(data =>
     strings.forEach((label, i) => {
       let element = new Intl.NumberFormat().format(data[label.apiKeyName]);
       createh(label.label, element, world);
     })).catch(console.error)
-  ).catch(function(err){console.log('Facing problem converting json file')})
 
  

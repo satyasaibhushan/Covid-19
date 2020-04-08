@@ -24,12 +24,10 @@ let Countrystrings = [
   }
 ];
 function Gettotals(Country_name) {
-  fetch(getCountryUrltotal(Country_name))
-    .then(res => res.json())
+  api.getCountryData(Country_name)
     .then(x =>
       Countrystrings.forEach(label => {
         let element = new Intl.NumberFormat().format(x[label.apiKeyName]);
-        // console.log(element);
         createh(label.label, element, country);
       })
     ).catch(console.log)

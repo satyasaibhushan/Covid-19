@@ -101,7 +101,7 @@
   @media screen and (max-device-width:580px) and (min-device-width:320px) and (orientation : portrait){
     .search-box {
         position: fixed;
-        top: 11%;
+        top: 10.5%;
         left: 97%;
         transform: translate(-100%, -30%);
         width: 47%;

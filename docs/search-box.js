@@ -32,7 +32,7 @@ function SearchArray(element, array) {
 }
 
 function clicked() {
-  if (SearchArray(Country_text.value, Countries_list) != -1) {
+  if (SearchArray(Country_text.value, countryList) != -1) {
     GetData(Country_text.value);
     Gettotals(Country_text.value);
     Smoothscroll("#Countrydiv", 750);
@@ -131,4 +131,3 @@ function autocomplete(inp, arr) {
   });
 }
 
-autocomplete(document.getElementById("country-name"), Countries_list);

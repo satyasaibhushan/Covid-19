@@ -2,107 +2,84 @@ let countryCharts = document.getElementsByClassName(
   "chart-container-country"
 )[0];
 
-let Countries_list = [];
+let countryList = [];
+api.getCountriesList().then(list => {
+  autocomplete(document.getElementById("country-name"), list)
+  countryList = list
+}
+)
+.catch(console.log)
 
 GetData("china");
 Gettotals("china");
 
+let casesChart = document.getElementById("chart-country")
+let deathChart = document.getElementById("chart2-country")
+let CountryCasesDiffChart = document.getElementById("chart3-country")
+let CountryDeathsDiffChart = document.getElementById("chart4-country")
 
-
-let casesChart = new MakeCanvas(document.getElementById("chart-country"));
-let deathChart = new MakeCanvas(document.getElementById("chart2-country"));
-let CountryCasesDiffChart = new MakeCanvas(document.getElementById("chart3-country"));
-let CountryDeathsDiffChart = new MakeCanvas(document.getElementById("chart4-country"));
-
-function getCountryUrl(country) {
-  return `https://corona.lmao.ninja/v2/historical/${country}`;
-}
-function getCountryUrltotal(country) {
-  return `https://corona.lmao.ninja/countries/${country}`;
-}
-
-let dataStruct = [
+let countryDataStruct = [
   {
-    title: "Countrywide Cases",
     chart: casesChart,
-    chart2:CountryCasesDiffChart,
-    bgColor: colors[0],
-    bgColor2:colors[2],
-    postive: true,
-    label2:"cases per day",
-    Ylabel2:'Cases increase',
-    KeyName: "cases"
+    xLabel: "Dates",
+    yLabel: "Cases",
+    type: "line",
+    datasets: [
+      {
+        label: "# cases",
+        keyName: "cases",
+        bgColor: [colors[0]],
+      },
+    ],
   },
   {
-    title: "Countrywide deaths",
     chart: deathChart,
-    chart2:CountryDeathsDiffChart,
-    bgColor: colors[1],
-    bgColor2:colors[3],
-    label2:"deaths per day",
-    Ylabel2:'Deaths increase',
-    KeyName: "deaths"
+    xLabel: "Dates",
+    yLabel: "Deaths",
+    type: "line",
+    datasets: [
+      {
+        label: "# deaths",
+        keyName: "deaths",
+        bgColor: [colors[1]],
+      },
+    ],
   },
   {
-    title: "Recovered",
-    KeyName: "recovered"
+    chart: CountryCasesDiffChart,
+    xLabel: "Dates",
+    yLabel: "Cases",
+    type: "bar",
+    datasets: [
+      {
+        label: "#of cases per day",
+        keyName: "casesDiff",
+        bgColor: colors[2],
+      },
+    ],
   },
   {
-    title: "Active cases"
-  }
+    chart: CountryDeathsDiffChart,
+    xLabel: "Dates",
+    yLabel: "Deaths",
+    type: "bar",
+    datasets: [
+      {
+        label: "#of deaths per day",
+        keyName: "deathsDiff",
+        bgColor: colors[3],
+      },
+    ],
+  },
 ];
 
 function GetData(Country_name) {
-  fetch(getCountryUrl(Country_name))
-    .then(res =>res.json()
-    .then(res => {
-          if (res["country"]) return res;
-          else if (res["message"]) {
-            alert(res["message"]);
-            throw Error("no Country exists with such name");
-          }
-        })
-        .then(conData => conData.timeline)
-        .then(data => {
-          dataStruct.forEach(entry => {
-            if (!entry.KeyName) return;
-            let cases = data[entry.KeyName],
-              a;
-            if (Object.values(cases).lastIndexOf(0) != -1)
-              a = Object.values(cases).lastIndexOf(0) + 1;
-            else {
-              a = 0;
-            }
-            let case_data = Object.values(cases).slice(a);
-            let case_date = Object.keys(cases).slice(a);
-            let caseDiff_data = getDifference(case_data)
-            if (entry.chart) {
-              entry.chart.clearCanvas();
-              entry.chart2.clearCanvas();
-              var dates= case_date.map(changeDate)
-              new CustomChart(entry.chart.getContext(),"line", "Dates", entry.KeyName, dates)
-              .addDataSet(entry.KeyName, case_data, entry.bgColor)
-              .drawChart()
-
-              new CustomChart(entry.chart2.getContext(),"bar", "Dates", entry.KeyName, dates.slice(1,dates.length))
-              .addDataSet(entry.KeyName, caseDiff_data, entry.bgColor2)
-              .drawChart()
-            }
-          });
-        })
-    )
+  api
+    .getCountryChartData(Country_name)
+    .then((data) => {
+      countryDataStruct.forEach((entry) => {
+        DrawCustomChart(entry, data.dates, data);
+      });
+    })
     .catch(console.log);
 }
-
-function Getcountries() {
-  fetch("https://corona.lmao.ninja/countries")
-    .then(res => res.json()
-    .then(x => {
-      x.forEach((element, i) => {
-        Countries_list[i] = element["country"];
-      })
-    }).catch(function(err){ console.error})
-    ).catch(function(err){alert('unable to reach server')})
-    
-}
-Getcountries();
