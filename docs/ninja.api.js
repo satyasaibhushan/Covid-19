@@ -4,12 +4,13 @@ function changeDate(a) {
 }
 
 function getDifference(a) {
-  let b = [];
-  for (let k = 1; k < a.length; k++) {
-    b[k - 1] = a[k] - a[k - 1];
-    if (b[k - 1] < 0) b[k - 1] = 0;
-  }
-  return b;
+  let b = a.map((x, i) =>{
+    let diff = x - (a[i-1]??0)
+    return diff < 0 ? 0 : diff
+  });
+
+  b[0] = 0
+  return b
 }
 
 let jsonErrorMessage = "unable to convert to json";

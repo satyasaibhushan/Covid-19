@@ -1,8 +1,8 @@
 function MakeCanvas(parent) {
-    parent.innerHTML = ""
-    canvas = document.createElement("canvas");
-    parent.appendChild(canvas);
-    parent.canvas = canvas
+  parent.innerHTML = "";
+  canvas = document.createElement("canvas");
+  parent.appendChild(canvas);
+  parent.canvas = canvas;
 }
 
 class CustomChart {
@@ -70,7 +70,25 @@ class CustomChart {
 }
 
 function DrawCustomChart(entry, xvalues, yvalues) {
-  MakeCanvas(entry.chart)
+  let dataSetKeys = entry.datasets.map((dataset) => dataset.keyName);
+  let i = 0
+  while(true){
+    let allZeros = dataSetKeys.reduce((prev, curr) => prev && yvalues[curr][i] == 0, true)
+    if(allZeros) {
+        i++
+    } else {
+        break
+    }
+  }
+
+  i = (i==0) ? i : i - 1
+  dataSetKeys.forEach(key =>{
+    console.log(yvalues)  
+
+    yvalues[key] = yvalues[key].slice(i,yvalues[key].length)})
+  xvalues = xvalues.slice(i, xvalues.length)
+
+  MakeCanvas(entry.chart);
   let chart = new CustomChart(
     entry.chart,
     entry.type,
