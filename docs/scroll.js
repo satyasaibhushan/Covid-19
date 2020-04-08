@@ -34,7 +34,7 @@ async function Smoothscroll(target, duration) {
 
 let topBtn = document.getElementsByClassName("gotop")[0];
 topBtn.addEventListener("click", function() {
-  Smoothscroll("#world_heading", 600);
+  Smoothscroll("#world_heading", 800);
 });
 window.onscroll = function() {
   if (window.scrollY > 250) {

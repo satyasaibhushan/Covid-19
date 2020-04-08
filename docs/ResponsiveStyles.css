@@ -95,16 +95,15 @@
 
   @media screen and (max-device-width:580px) and (min-device-width:320px) and (orientation : portrait){
     .sticker{
-      height: 4.5vh;
+      height: 6vh;
       width:45vw;
-
     }
     .title{
-      top: 0.23vh;
+      top: 1vh;
       font-size: 2.5vh;
     }
     .subtitle{
-      top: 2.6vh;
+      top: 3.3vh;
       font-size: 1.7vh;
       left:20vw;
 
@@ -139,9 +138,15 @@
     .world-data div,.country-data div{
       font-size: 3.5vmin;;
     }
-  
+    #world_heading{
+      margin-top: 3.3vh;
+    }
+    #country_heading{
+      margin-top: 0;
+      margin-bottom: 1.5vh;
+    }
     #Countrydiv{
-      padding:3vh 0 0 0
+      padding:4vh 0 0 0
     }
     .gotop {
       right:3vw;

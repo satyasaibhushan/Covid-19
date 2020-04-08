@@ -13,7 +13,7 @@
     }
     #country-name {
       width: 85%;
-      font-size: 3vmin;
+      font-size: 2vmax;
       border-bottom:1px ridge grey;
        line-height:20px;
        padding:0 1px 0 0 ;
@@ -32,7 +32,7 @@
       font-style: italic;
       color: rgb(179, 177, 177);
       opacity: 0.6;
-      font-size:2.5vw;
+      font-size:2vmax;
     }
     .search-btn {
       transform: translate(-50%, -10%);
@@ -72,22 +72,55 @@
   @media screen and (max-device-height:580px) and (min-device-height:320px){
     .search-box {
         position: fixed;
-        top: 15%;
+        top: 13%;
         left: 97%;
         transform: translate(-100%, -30%);
-        width: 19%;
+        width: 25%;
+        /* transition: ease-in-out 4s; */
+        padding: 0;
+        
+      }
+      #country-name {
+        width: 85%;
+        font-size: 2vmax;
+         line-height:21px;
+         padding:0 1px 0 0 ;
+        /* transition: 0s; */
+      }
+      ::placeholder {
+        /* font-family: sans-serif; */
+        font-style: italic;
+        color: rgb(179, 177, 177);
+        opacity: 0.6;
+        font-size:2vmax;
+      }
+
+
+  }
+
+  @media screen and (max-device-width:580px) and (min-device-width:320px) and (orientation : portrait){
+    .search-box {
+        position: fixed;
+        top: 11%;
+        left: 97%;
+        transform: translate(-100%, -30%);
+        width: 47%;
         /* transition: ease-in-out 4s; */
         padding: 0;
       }
       #country-name {
         width: 85%;
-        font-size: 1.5vmax;
+        font-size: 2vmax;
         border-bottom:1px ridge grey;
          line-height:21px;
          padding:0 1px 0 0 ;
          color: grey;
         /* transition: 0s; */
       }
-
+     ::placeholder{
+       font-size: 2vmax ;
+     }
 
   }
+
+ 

@@ -80,24 +80,13 @@ function GetData(Country_name) {
               entry.chart.clearCanvas();
               entry.chart2.clearCanvas();
               var dates= case_date.map(changeDate)
-              GetChart(
-                "line",
-                entry.chart.getContext(),
-                entry.bgColor,
-                dates,
-                case_data,
-                entry.KeyName,
-                entry.KeyName.charAt(0).toUpperCase() + entry.KeyName.slice(1)
-              );
-              GetChart(
-                "bar",
-                entry.chart2.getContext(),
-                entry.bgColor2,
-                dates.slice(1,dates.length),
-                caseDiff_data,
-                entry.label2,
-                entry.Ylabel2
-              );
+              new CustomChart(entry.chart.getContext(),"line", "Dates", entry.KeyName, dates)
+              .addDataSet(entry.KeyName, case_data, entry.bgColor)
+              .drawChart()
+
+              new CustomChart(entry.chart2.getContext(),"bar", "Dates", entry.KeyName, dates.slice(1,dates.length))
+              .addDataSet(entry.KeyName, caseDiff_data, entry.bgColor2)
+              .drawChart()
             }
           });
         })
