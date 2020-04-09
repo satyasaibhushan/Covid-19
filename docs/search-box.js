@@ -1,19 +1,16 @@
-
 let Search_btn = document.getElementsByClassName("search-btn")[0];
 let Search_box = document.getElementsByClassName("search-box")[0];
 let Country_text = document.getElementById("country-name");
 
-
-Country_text.addEventListener("keypress", function(e) {
+Country_text.addEventListener("keypress", function (e) {
   if (e.key === "Enter") clicked();
-  
 });
 
-Country_text.addEventListener("click", function(e) {
+Country_text.addEventListener("click", function (e) {
   Smoothscroll("#Countrydiv", 800);
 });
 
-Search_btn.addEventListener("click", function(e) {
+Search_btn.addEventListener("click", function (e) {
   if (Search_box.isOpened) clicked();
   else {
     // Search_box.modifySearchBox(true);
@@ -33,10 +30,14 @@ function SearchArray(element, array) {
 
 function clicked() {
   if (SearchArray(Country_text.value, countryList) != -1) {
-    GetData(Country_text.value);
-    Gettotals(Country_text.value);
+    let countryName =
+      Country_text.value.charAt(0).toUpperCase() +
+      Country_text.value.slice(1).toLowerCase();
+    GetData(countryName);
+    Gettotals(countryName);
     Smoothscroll("#Countrydiv", 750);
     Country_text.blur();
+    cookie(countryName);
   } else {
     alert("Please select a country from suggested");
     // autocomplete(document.getElementById("country-name"), Countries_list);
@@ -45,10 +46,16 @@ function clicked() {
 
 function autocomplete(inp, arr) {
   var currentFocus;
-  inp.addEventListener("input", function(e) {
-    var a,
-      b,
-      i,
+  inp.addEventListener("click", (e) => {
+    addSuggestions(
+      inp,
+      0,
+      searches.map((s) => s.name)
+    );
+  });
+
+  inp.addEventListener("input", function (e) {
+    var i,
       val = this.value;
 
     closeAllLists();
@@ -57,28 +64,39 @@ function autocomplete(inp, arr) {
     }
     currentFocus = -1;
 
-    a = document.createElement("DIV");
+    addSuggestions(
+      inp,
+      val.length,
+      arr.filter(
+        (x) => x.substr(0, val.length).toUpperCase() == val.toUpperCase()
+      )
+    );
+  });
+
+  function addSuggestions(inp, length, suggestions) {
+    let a = document.createElement("DIV");
     a.setAttribute("id", this.id + "autocomplete-list");
     a.setAttribute("class", "autocomplete-items");
-    this.parentNode.appendChild(a);
+    inp.parentNode.appendChild(a);
 
-    for (i = 0; i < arr.length; i++) {
-      if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-        b = document.createElement("DIV");
-        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-        b.innerHTML += arr[i].substr(val.length);
-        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-        b.addEventListener("click", function(e) {
-          e.preventDefault();
-          inp.value = this.getElementsByTagName("input")[0].value;
-          closeAllLists();
-          clicked();
-        });
-        a.appendChild(b);
-      }
-    }
-  });
-  inp.addEventListener("keydown", function(e) {
+    suggestions.forEach((suggestion) => {
+      b = document.createElement("DIV");
+      b.innerHTML = `
+    <strong>${suggestion.substr(0, length)}</strong>${suggestion.substr(length)}
+    <input type='hidden' value=${suggestion}>
+    `;
+
+      b.addEventListener("click", function (e) {
+        e.preventDefault();
+        inp.value = this.getElementsByTagName("input")[0].value;
+        closeAllLists();
+        clicked();
+      });
+      a.appendChild(b);
+    });
+  }
+
+  inp.addEventListener("keydown", function (e) {
     // e.preventDefault()
     var x = document.getElementById(this.id + "autocomplete-list");
     if (x) x = x.getElementsByTagName("div");
@@ -125,9 +143,8 @@ function autocomplete(inp, arr) {
       }
     }
   }
-  document.addEventListener("click", function(e) {
-    closeAllLists(e.target);
+  document.addEventListener("click", function (e) {
+    if(e.target.id != "country-name") closeAllLists(e.target);
     // e.preventDefault();
   });
 }
-
