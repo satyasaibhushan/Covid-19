@@ -186,6 +186,7 @@ br {display:none}
   text-decoration: none;
   color:  #34495e;
   justify-self: center;
+  font-size: 20px;
 }
 .footer abbr {
   justify-self: left;
@@ -196,7 +197,9 @@ br {display:none}
   height: 40px;
   border-radius: 50%;
 }
-.footer a img{
+.footer a img {
   height: 35px;
 }
-
+.footer abbr img{
+  height:17px
+}

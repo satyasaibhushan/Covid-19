@@ -91,6 +91,9 @@
       width: 100vw;
       column-gap: 10px;
     }   
+    .footer abbr img{
+      height:17px
+    }
   }
 
   @media screen and (max-device-width:580px) and (min-device-width:320px) and (orientation : portrait){
@@ -161,6 +164,9 @@
     }
     .footer a img{
       height: 30px;
+    }
+    .footer abbr img{
+      height:17px
     }
   }
   @media screen and (max-width:580px) and (min-device-width:580px){

@@ -4,13 +4,13 @@ function changeDate(a) {
 }
 
 function getDifference(a) {
-  let b = a.map((x, i) =>{
-    let diff = x - (a[i-1]??0)
-    return diff < 0 ? 0 : diff
+  let b = a.map((x, i) => {
+    let diff = x - (a[i - 1] ?? 0);
+    return diff < 0 ? 0 : diff;
   });
 
-  b[0] = 0
-  return b
+  b[0] = 0;
+  return b;
 }
 
 let jsonErrorMessage = "unable to convert to json";
@@ -65,6 +65,9 @@ const api = {
   },
 
   getCountryChartData(countryName) {
+    if(countryName.toUpperCase() == "INDIA"){
+      return api.getIndiaData();
+    }
     return new Promise((resolve, reject) => {
       fetch(`https://corona.lmao.ninja/v2/historical/${countryName}`)
         .then((res) =>
@@ -104,4 +107,33 @@ const api = {
         .catch(reject);
     });
   },
+  getIndiaData() {
+    return new Promise((resolve, reject) => {
+      fetch("https://api.covid19india.org/data.json").then((data) =>
+        data
+          .json()
+          .then((x) => x.cases_time_series)
+          .then((data) => {
+            let x = {
+              deaths : [],
+              cases : [],
+              dates : [],
+              deathsDiff : [],
+              casesDiff : []
+            };
+
+            data.forEach((element) => {
+              let { dailyconfirmed, dailydeceased, date, totalconfirmed, totaldeceased  } = element
+              x.casesDiff.push(parseInt(dailyconfirmed));
+              x.deathsDiff.push(parseInt(dailydeceased));
+              x.dates.push(date);
+              x.cases.push(parseInt(totalconfirmed));
+              x.deaths.push(parseInt(totaldeceased));
+              resolve(x);
+            });
+          })
+      );
+    });
+  },
 };
+

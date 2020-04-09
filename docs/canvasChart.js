@@ -83,8 +83,6 @@ function DrawCustomChart(entry, xvalues, yvalues) {
 
   i = (i==0) ? i : i - 1
   dataSetKeys.forEach(key =>{
-    console.log(yvalues)  
-
     yvalues[key] = yvalues[key].slice(i,yvalues[key].length)})
   xvalues = xvalues.slice(i, xvalues.length)
 
