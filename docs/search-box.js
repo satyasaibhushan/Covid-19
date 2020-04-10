@@ -3,7 +3,10 @@ let Search_box = document.getElementsByClassName("search-box")[0];
 let Country_text = document.getElementById("country-name");
 
 Country_text.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") clicked();
+  if (e.key === "Enter") {
+    clicked();
+    
+  }
 });
 
 Country_text.addEventListener("click", function (e) {
@@ -11,10 +14,18 @@ Country_text.addEventListener("click", function (e) {
 });
 
 Search_btn.addEventListener("click", function (e) {
-  if (Search_box.isOpened) clicked();
-  else {
-    // Search_box.modifySearchBox(true);
+  if(Country_text.value == "") Country_text.focus()
+  else{
+    clicked();
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+    'event': 'countryrequested',
+    'registrationCountry': `${Country_text.value}`,
+    'type': 'clickedBtn'
+ });
   }
+ 
+  
 });
 
 function SearchArray(element, array) {
@@ -94,6 +105,11 @@ function autocomplete(inp, arr) {
         e.preventDefault();
         inp.value = b.country;
         closeAllLists();
+        window.dataLayer.push({
+          'event': 'countryrequested',
+          'registrationCountry': `${Country_text.value}`,
+          'type': 'ClickedSugg'
+           });
         clicked();
       });
       a.appendChild(b);
@@ -119,6 +135,14 @@ function autocomplete(inp, arr) {
       } else {
         //for closing of suggestions if value entered is a country
         if (SearchArray(inp.value, arr) != -1) closeAllLists(e.target);
+      }
+      if (!(currentFocus > -1)) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+        'event': 'countryrequested',
+        'registrationCountry': `${Country_text.value}`,
+        'type': 'Enter'
+        });
       }
       clicked();
     }
