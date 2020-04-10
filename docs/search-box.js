@@ -20,7 +20,7 @@ Search_btn.addEventListener("click", function (e) {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
     'event': 'countryrequested',
-    'registrationCountry': `${Country_text.value}`,
+    'Country': `${Country_text.value}`,
     'type': 'clickedBtn'
  });
   }
@@ -107,7 +107,7 @@ function autocomplete(inp, arr) {
         closeAllLists();
         window.dataLayer.push({
           'event': 'countryrequested',
-          'registrationCountry': `${Country_text.value}`,
+          'Country': `${Country_text.value}`,
           'type': 'ClickedSugg'
            });
         clicked();
@@ -140,7 +140,7 @@ function autocomplete(inp, arr) {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
         'event': 'countryrequested',
-        'registrationCountry': `${Country_text.value}`,
+        'Country': `${Country_text.value}`,
         'type': 'Enter'
         });
       }
