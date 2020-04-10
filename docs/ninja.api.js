@@ -53,6 +53,9 @@ const api = {
   },
 
   getCountryData(countryName) {
+    if(countryName.toUpperCase() == "INDIA"){
+      return api.getIndiaData();
+    }
     return new Promise((resolve, reject) => {
       fetch(`https://corona.lmao.ninja/countries/${countryName}`).then((res) =>
         res
@@ -66,7 +69,7 @@ const api = {
 
   getCountryChartData(countryName) {
     if(countryName.toUpperCase() == "INDIA"){
-      return api.getIndiaData();
+      return api.getIndiaChartData();
     }
     return new Promise((resolve, reject) => {
       console.log(countryName)
@@ -108,7 +111,7 @@ const api = {
         .catch(reject);
     });
   },
-  getIndiaData() {
+  getIndiaChartData() {
     return new Promise((resolve, reject) => {
       fetch("https://api.covid19india.org/data.json").then((data) =>
         data
@@ -136,5 +139,37 @@ const api = {
       );
     });
   },
+
+  getIndiaData() {
+    return new Promise((resolve, reject) => {
+      fetch("https://api.covid19india.org/data.json").then((data) =>
+        data
+          .json()
+          .then((x) => x.cases_time_series)
+          .then((data) => {
+            let length = data.length
+            console.log(length)
+            let x = {
+              deaths : [],
+              cases : [],
+              recovered :[],
+              active : [],
+              todayCases : [],
+              todayDeaths : []
+            };
+              let { dailyconfirmed, dailydeceased, totalrecovered, totalconfirmed, totaldeceased  } = data[length-1]
+              x.todayCases.push(parseInt(dailyconfirmed));
+              x.todayDeaths.push(parseInt(dailydeceased));
+              x.recovered.push(parseInt(totalrecovered));
+              x.cases.push(parseInt(totalconfirmed));
+              x.deaths.push(parseInt(totaldeceased));
+              x.active.push(x.cases-x.deaths-x.recovered);
+              console.log(x)
+              resolve(x);
+          })
+      );
+    });
+  },
 };
 
+api.getIndiaData()
