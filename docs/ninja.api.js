@@ -69,7 +69,8 @@ const api = {
       return api.getIndiaData();
     }
     return new Promise((resolve, reject) => {
-      fetch(`https://corona.lmao.ninja/v2/historical/${countryName}`)
+      console.log(countryName)
+      fetch(`https://corona.lmao.ninja/v2/historical/${countryName}?lastdays=all`)
         .then((res) =>
           res
             .json()

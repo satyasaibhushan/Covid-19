@@ -47,11 +47,14 @@ function clicked() {
 function autocomplete(inp, arr) {
   var currentFocus;
   inp.addEventListener("click", (e) => {
-    addSuggestions(
-      inp,
-      0,
-      searches.map((s) => s.name)
-    );
+    if(inp.value.length == 0){
+      currentFocus = -1;
+      addSuggestions(
+        inp,
+        0,
+        searches.map((s) => s.name)
+      );
+    }
   });
 
   inp.addEventListener("input", function (e) {
@@ -75,20 +78,21 @@ function autocomplete(inp, arr) {
 
   function addSuggestions(inp, length, suggestions) {
     let a = document.createElement("DIV");
-    a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("id", inp.id + "autocomplete-list");
     a.setAttribute("class", "autocomplete-items");
     inp.parentNode.appendChild(a);
 
     suggestions.forEach((suggestion) => {
-      b = document.createElement("DIV");
+      let b = document.createElement("DIV");
       b.innerHTML = `
     <strong>${suggestion.substr(0, length)}</strong>${suggestion.substr(length)}
     <input type='hidden' value=${suggestion}>
     `;
+    b.country = suggestion
 
       b.addEventListener("click", function (e) {
         e.preventDefault();
-        inp.value = this.getElementsByTagName("input")[0].value;
+        inp.value = b.country;
         closeAllLists();
         clicked();
       });
