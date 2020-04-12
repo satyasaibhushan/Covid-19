@@ -29,6 +29,7 @@ let countryDataStruct = [
         label: "# cases",
         keyName: "cases",
         bgColor: [colors[0]],
+        borderColor:"rgba(236, 240, 241,1.0)"
       },
     ],
   },
@@ -42,6 +43,7 @@ let countryDataStruct = [
         label: "# deaths",
         keyName: "deaths",
         bgColor: [colors[1]],
+        borderColor:"rgba(236, 240, 241,1.0)"
       },
     ],
   },
@@ -55,6 +57,7 @@ let countryDataStruct = [
         label: "#of cases per day",
         keyName: "casesDiff",
         bgColor: colors[2],
+        borderColor:"rgba(46, 204, 113,0.3)"
       },
     ],
   },
@@ -68,6 +71,7 @@ let countryDataStruct = [
         label: "#of deaths per day",
         keyName: "deathsDiff",
         bgColor: colors[3],
+        borderColor:"rgba(192, 57, 43,0.3)"
       },
     ],
   },

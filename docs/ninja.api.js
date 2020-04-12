@@ -5,7 +5,7 @@ function changeDate(a) {
 
 function getDifference(a) {
   let b = a.map((x, i) => {
-    let diff = x - (a[i - 1] ?? 0);
+    let diff = x - (a[i - 1] ? a[i - 1] : 0);
     return diff < 0 ? 0 : diff;
   });
 
@@ -72,7 +72,6 @@ const api = {
       return api.getIndiaChartData();
     }
     return new Promise((resolve, reject) => {
-      console.log(countryName)
       fetch(`https://corona.lmao.ninja/v2/historical/${countryName}?lastdays=all`)
         .then((res) =>
           res
@@ -148,7 +147,6 @@ const api = {
           .then((x) => x.cases_time_series)
           .then((data) => {
             let length = data.length
-            console.log(length)
             let x = {
               deaths : [],
               cases : [],
@@ -164,7 +162,6 @@ const api = {
               x.cases.push(parseInt(totalconfirmed));
               x.deaths.push(parseInt(totaldeceased));
               x.active.push(x.cases-x.deaths-x.recovered);
-              console.log(x)
               resolve(x);
           })
       );

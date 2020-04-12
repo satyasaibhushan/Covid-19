@@ -16,12 +16,12 @@ class CustomChart {
     return this;
   }
 
-  addDataSet(label, data, colors) {
+  addDataSet(label, data, colors,borderColor) {
     let dataset = {
       label: label,
       data: data,
       backgroundColor: colors,
-      borderColor: "rgba(236, 240, 241,1.0)",
+      borderColor: borderColor,
       borderWidth: 1,
       pointHitRadius: 10,
       hoverBackgroundColor: "grey",
@@ -95,7 +95,7 @@ function DrawCustomChart(entry, xvalues, yvalues) {
     xvalues
   );
   entry.datasets.forEach((dataset) => {
-    chart.addDataSet(dataset.label, yvalues[dataset.keyName], dataset.bgColor);
+    chart.addDataSet(dataset.label, yvalues[dataset.keyName], dataset.bgColor,dataset.borderColor);
   });
   chart.drawChart();
 }

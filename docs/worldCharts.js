@@ -26,6 +26,7 @@ let WorldDataStruct = [
         label: "# deaths",
         keyName: "deaths",
         bgColor: [colors[1]],
+        borderColor:"rgba(236, 240, 241,1.0)"
       },
     ],
   },
@@ -39,6 +40,7 @@ let WorldDataStruct = [
         label: "# deaths",
         keyName: "deaths",
         bgColor: [colors[1]],
+        borderColor:"rgba(236, 240, 241,1.0)"
       },
     ],
   },
@@ -52,6 +54,7 @@ let WorldDataStruct = [
         label: "#of cases per day",
         keyName: "casesDiff",
         bgColor: colors[2],
+        borderColor:"rgba(236, 240, 241,1.0)"
       },
     ],
   },
@@ -65,6 +68,7 @@ let WorldDataStruct = [
         label: "#of deaths per day",
         keyName: "deathsDiff",
         bgColor: colors[3],
+        borderColor:"rgba(236, 240, 241,1.0)"
       },
     ],
   },

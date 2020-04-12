@@ -2,6 +2,16 @@
     /* header{
       height:115vh
     } */
+    .sticker{
+      width : 20rem;
+    }
+    .title{
+      font-size: 1.7rem;
+    }
+    .subtitle{
+      left: 10rem;
+      font-size: 1.3rem;
+    }
     .charts ,.charts2 {
       display: block;
       position: relative;
