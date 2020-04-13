@@ -217,11 +217,29 @@ br {display:none}
 }
 .stateTable{
   position: relative;
-  width: 50vw;
-  left:25vw
+  width: 25rem;
+  left:50%;
+  transform: translate(-50%,0);
+  margin: 5vh 0 5vh 0;
+  border-spacing:0.5rem;
 }
 .stateTable tr td{
     text-align: center;
-    vertical-align: top;
-
+    vertical-align: center;
+    
+}.stateTable tr{
+  height:2rem
+}
+.districtIncrease{
+  color: #e74c3c;
+  font-size: 0.8rem;
+}
+.increaseArrow{
+  position: relative;
+  height:0.6rem;
+}
+.stateTable tr td:nth-child(even) {
+  width :10rem;
+  text-align: left;
+ padding-left: 4rem;
 }

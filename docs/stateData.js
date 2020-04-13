@@ -90,18 +90,20 @@ function getDistrictTable(stateName){
   api.getDistrictData(stateName)
     .then(data =>{
       if(data){
-       stateTable.innerHTML = '' 
-       let tableHead= stateTable.insertRow(-1);
-       let districtHead = tableHead.insertCell(0)
-         districtHead.innerHTML = 'District';
-         let districtCountHead = tableHead.insertCell(1)
-         districtCountHead.innerHTML = "Confirmed Cases";
+       stateTable.innerHTML = `<th>District Name</th>
+       <th>Confirmed Cases</th>`
       data.forEach(element => {
          let tableRow = stateTable.insertRow(-1)
          let districtName = tableRow.insertCell(0)
+         districtName.className = 'districtName'
          districtName.innerHTML = element['district'];
          let districtCount = tableRow.insertCell(1)
-         districtCount.innerHTML = element['confirmed'];
+         districtCount.innerHTML += element['confirmed'];
+         districtCount.className = 'districtCount'
+         if(element['delta']['confirmed']!=0)
+         districtCount.innerHTML += `<span class='districtIncrease'>
+         <img class = 'increaseArrow'src="./src/uparrow.svg" alt="increase arrow" />
+         ${element['delta']['confirmed']}  </span>`
         console.log(element['district'],element['confirmed'],element['delta']['confirmed'])
       });}
     })
