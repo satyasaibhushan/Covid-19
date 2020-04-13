@@ -91,6 +91,8 @@ function clicked() {
     header.classList.add("hide");
     stateDiv.classList.remove("hide");
     setHeading(name, "state_heading");
+    GetData("india");
+    Gettotals("india");
   } else if (SearchArray(Country_text.value, countryList) != -1) {
     GetData(name);
     Gettotals(name);

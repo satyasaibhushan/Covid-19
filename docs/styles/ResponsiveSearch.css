@@ -5,7 +5,7 @@
       top: 8%;
       left: 97%;
       transform: translate(-100%, -30%);
-      width: 37%;
+      width: 45%;
       /* transition: ease-in-out 4s; */
       padding: 0;
       background-color: transparent;
@@ -32,7 +32,7 @@
       font-style: italic;
       color: rgb(179, 177, 177);
       opacity: 0.6;
-      font-size:2vmax;
+      font-size:1.8vw;
     }
     .search-btn {
       transform: translate(-50%, -10%);
@@ -75,7 +75,7 @@
         top: 13%;
         left: 97%;
         transform: translate(-100%, -30%);
-        width: 25%;
+        width: 28%;
         /* transition: ease-in-out 4s; */
         padding: 0;
         
@@ -92,7 +92,7 @@
         font-style: italic;
         color: rgb(179, 177, 177);
         opacity: 0.6;
-        font-size:2vmax;
+        font-size:1.8vmax;
       }
 
 
@@ -104,7 +104,7 @@
         top: 10.5%;
         left: 97%;
         transform: translate(-100%, -30%);
-        width: 47%;
+        width: 50%;
         /* transition: ease-in-out 4s; */
         padding: 0;
       }
@@ -118,7 +118,7 @@
         /* transition: 0s; */
       }
      ::placeholder{
-       font-size: 2vmax ;
+       font-size: 1.6vmax ;
      }
 
   }

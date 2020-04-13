@@ -36,40 +36,38 @@ let stateDataStruct = [
         },
       ],
     },
+  ];
+  let Statestrings = [
     {
-      chart: stateCasesDiffChart,
-      xLabel: "Dates",
-      yLabel: "Cases",
-      type: "bar",
-      datasets: [
-        {
-          label: "#of cases per day",
-          keyName: "casesDiff",
-          bgColor: colors[2],
-          borderColor:"rgba(46, 204, 113,0.3)"
-        },
-      ],
+      label: "Statewide Cases",
+      apiKeyName: "cases"
     },
     {
-      chart: stateDeathsDiffChart,
-      xLabel: "Dates",
-      yLabel: "Deaths",
-      type: "bar",
-      datasets: [
-        {
-          label: "#of deaths per day",
-          keyName: "deathsDiff",
-          bgColor: colors[3],
-          borderColor:"rgba(192, 57, 43,0.3)"
-        },
-      ],
+      label: "Statewide Deaths",
+      apiKeyName: "deaths"
     },
+    {
+      label: "Recovered Cases",
+      apiKeyName: "recovered"
+    },
+    {
+      label: "Active Cases",
+      apiKeyName: "active"
+    },
+    {
+      label: "Today added Cases",
+      apiKeyName: "todayCases"
+    },
+    {
+      label:"Today added Deaths",
+      apiKeyName:"todayDeaths"
+    }
   ];
 
   function getStateTotals(stateCode) {
     api.getStateData(stateCode)
       .then(x =>{
-        Countrystrings.forEach(label => {
+        Statestrings.forEach(label => {
           let element = new Intl.NumberFormat().format(x[label.apiKeyName]);
         //   console.log(x)
           createh(label.label, element, state);
