@@ -1,5 +1,6 @@
 let world = document.getElementsByClassName("world-data")[0];
 let country = document.getElementsByClassName("country-data")[0];
+let state  = document.getElementsByClassName("state-data")[0];
 
 let strings = [
   {

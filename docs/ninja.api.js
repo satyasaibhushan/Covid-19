@@ -12,6 +12,13 @@ function getDifference(a) {
   b[0] = 0;
   return b;
 }
+function addDifference(a){
+  let b= [];
+  for (let i = 0; i < a.length; i++) {
+      b[i] = a[i] +(b[i - 1] ? b[i - 1] : 0)
+  }
+  return b;
+}
 
 let jsonErrorMessage = "unable to convert to json";
 
@@ -167,6 +174,84 @@ const api = {
       );
     });
   },
+  getStatesChartData (stateCode){
+
+    return new Promise((resolve, reject) => {
+      fetch("https://api.covid19india.org/states_daily.json")
+        .then((res) =>
+          res
+            .json()
+            .then(x => x.states_daily)
+            .then(x => {
+              let object = {
+                cases : [],
+                deaths : [],
+                dates : [],
+                casesDiff : [],
+                deathsDiff : []
+              }
+              x.forEach((element,i) => {
+                 if(element.status == "Confirmed") object.casesDiff.push(parseInt(element[stateCode]))
+                //  if(element.status == "Recovered") object.recovered.push(element[stateCode])
+                 if(element.status == "Deceased"){ object.deathsDiff.push(parseInt(element[stateCode]))
+                 object.dates.push(element['date'])}
+              });
+              object.cases = addDifference(object.casesDiff)
+              object.deaths = addDifference(object.deathsDiff)
+              resolve(object)
+            })
+        )
+        .catch(reject);
+    });
+  },
+  
+  getStateData(stateCode) {
+    return new Promise((resolve, reject) => {
+      fetch("https://api.covid19india.org/data.json").then((res) =>
+        res
+          .json()
+          .then(res => res.statewise )
+          .then(x=> {
+            let object = {
+              deaths : [],
+              cases : [],
+              recovered :[],
+              active : [],
+              todayCases : [],
+              todayDeaths : []
+            };
+            x.forEach(element => {
+            if(element['statecode'] == stateCode.toUpperCase()){
+              // console.log(x)
+              object.todayCases.push(parseInt(element['deltaconfirmed']));
+              object.todayDeaths.push(parseInt(element['deltadeaths']));
+              object.recovered.push(parseInt(element['recovered']));
+              object.cases.push(parseInt(element['confirmed']));
+              object.deaths.push(parseInt(element['deaths']));
+              object.active.push(element['active']);
+              resolve(object);
+            }    
+          })})
+          .catch(() => reject(jsonErrorMessage))
+          .catch(reject)
+      );
+    });
+  },
+
+  getStates(){
+    return new Promise((resolve, reject) => {
+      fetch("https://api.covid19india.org/data.json")
+        .then((res) =>
+          res
+            .json()
+            .then(x=> x.statewise)
+            .then(x => {
+              resolve(x.map(y => y.state))
+            })
+        )
+        .catch(reject);
+    });
+  },
 };
 
-api.getIndiaData()
+// api.getStatesChartData('ap')

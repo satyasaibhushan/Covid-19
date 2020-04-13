@@ -1,11 +1,51 @@
 let Search_btn = document.getElementsByClassName("search-btn")[0];
 let Search_box = document.getElementsByClassName("search-box")[0];
 let Country_text = document.getElementById("country-name");
+let header = document.getElementsByClassName("head")[0];
+let stateDiv = document.getElementsByClassName("stateDiv")[0];
+let changeState = {
+  Maharashtra: "mh",
+  Delhi: "dl",
+  "Tamil nadu": "tn",
+  Rajasthan: "rj",
+  "Madhya pradesh": "mp",
+  Telangana: "tg",
+  Gujarat: "gj",
+  "Uttar pradesh": "up",
+  "Andhra pradesh": "ap",
+  Kerala: "kl",
+  "Jammu and kashmir": "jk",
+  Karnataka: "ka",
+  Haryana: "hr",
+  Punjab: "pb",
+  "West bengal": "wb",
+  Bihar: "br",
+  Odisha: "or",
+  Uttarakhand: "ut",
+  "Himachal pradesh": "hp",
+  Assam: "as",
+  Chhattisgarh: "ct",
+  Chandigarh: "ch",
+  Jharkhand: "jh",
+  Ladakh: "la",
+  "Andaman and nicobar islands": "an",
+  Goa: "ga",
+  Puducherry: "py",
+  Manipur: "mn",
+  Tripura: "tr",
+  Mizoram: "mz",
+  "Arunachal pradesh": "ar",
+  "Dadra and nagar haveli": "dn",
+  Nagaland: "nl",
+  "Daman and Diu": "dd",
+  Lakshadweep: "ld",
+  Meghalaya: "ml",
+  Sikkim: "sk",
+};
 
 Country_text.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     clicked();
-    
   }
 });
 
@@ -14,18 +54,16 @@ Country_text.addEventListener("click", function (e) {
 });
 
 Search_btn.addEventListener("click", function (e) {
-  if(Country_text.value == "") Country_text.focus()
-  else{
+  if (Country_text.value == "") Country_text.focus();
+  else {
     clicked();
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-    'event': 'countryrequested',
-    'Country': `${Country_text.value}`,
-    'type': 'clickedBtn'
- });
+      event: "countryrequested",
+      Country: `${Country_text.value}`,
+      type: "clickedBtn",
+    });
   }
- 
-  
 });
 
 function SearchArray(element, array) {
@@ -40,25 +78,36 @@ function SearchArray(element, array) {
 }
 
 function clicked() {
-  if (SearchArray(Country_text.value, countryList) != -1) {
-    let countryName =
+  let name =
       Country_text.value.charAt(0).toUpperCase() +
       Country_text.value.slice(1).toLowerCase();
-    GetData(countryName);
-    Gettotals(countryName);
+  if (changeState[name]) {
+    stateCode = changeState[name];
+    getStateCharts(stateCode);
+    getStateTotals(stateCode);
+    Smoothscroll(".stateDiv", 750);
+    Country_text.blur();
+    cookie(name);
+    header.classList.add("hide");
+    stateDiv.classList.remove("hide");
+    setHeading(name, "state_heading");
+  } else if (SearchArray(Country_text.value, countryList) != -1) {
+    GetData(name);
+    Gettotals(name);
     Smoothscroll("#Countrydiv", 750);
     Country_text.blur();
-    cookie(countryName);
+    cookie(name);
+    header.classList.remove("hide");
+    stateDiv.classList.add("hide");
   } else {
     alert("Please select a country from suggested");
-    // autocomplete(document.getElementById("country-name"), Countries_list);
   }
 }
 
 function autocomplete(inp, arr) {
   var currentFocus;
   inp.addEventListener("click", (e) => {
-    if(inp.value.length == 0){
+    if (inp.value.length == 0) {
       currentFocus = -1;
       addSuggestions(
         inp,
@@ -99,17 +148,16 @@ function autocomplete(inp, arr) {
     <strong>${suggestion.substr(0, length)}</strong>${suggestion.substr(length)}
     <input type='hidden' value=${suggestion}>
     `;
-    b.country = suggestion
-
+      b.country = suggestion;
       b.addEventListener("click", function (e) {
         e.preventDefault();
         inp.value = b.country;
         closeAllLists();
         window.dataLayer.push({
-          'event': 'countryrequested',
-          'Country': `${Country_text.value}`,
-          'type': 'ClickedSugg'
-           });
+          event: "countryrequested",
+          Country: `${Country_text.value}`,
+          type: "ClickedSugg",
+        });
         clicked();
       });
       a.appendChild(b);
@@ -139,9 +187,9 @@ function autocomplete(inp, arr) {
       if (!(currentFocus > -1)) {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-        'event': 'countryrequested',
-        'Country': `${Country_text.value}`,
-        'type': 'Enter'
+          event: "countryrequested",
+          Country: `${Country_text.value}`,
+          type: "Enter",
         });
       }
       clicked();
@@ -172,7 +220,7 @@ function autocomplete(inp, arr) {
     }
   }
   document.addEventListener("click", function (e) {
-    if(e.target.id != "country-name") closeAllLists(e.target);
+    if (e.target.id != "country-name") closeAllLists(e.target);
     // e.preventDefault();
   });
 }

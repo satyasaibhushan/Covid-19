@@ -32,11 +32,11 @@ function Gettotals(Country_name) {
         createh(label.label, element, country);
       })
     ).catch(console.log)
-  setHeading(Country_name);
+  setHeading(Country_name,'country_heading');
 }
 
-function setHeading(Country_name){
-     let heading = document.getElementById('country_heading');
+function setHeading(Country_name,id){
+     let heading = document.getElementById(id);
 
      heading.innerHTML =`${(Country_name).toLowerCase()}'s Data`
 }

@@ -54,11 +54,11 @@
       <h3 class="subtitle">charts and data</h3>
     </div>
     </header>
-    <header>
+    
       <div class="loader">
         <img src="src/img.png" alt="" />
       </div>
-
+      <header class = 'head'>
       <h1 id="world_heading">World's data</h1>
       <div class="world-data"></div>
       <div class="chart-container">
@@ -66,26 +66,25 @@
         <div id="chart2" class="charts"></div>
         <div id="chart3-world" class="charts"></div>
         <div id="chart4-world" class="charts"></div>
-      </div>
-
-      <div class="search-box">
-        <label for="search" class="label">
-          <input
-            placeholder=" Search Country name"
-            type="text"
-            id="country-name"
-            name="cname"
-        /></label>
-        <a class="search-btn">
-          <img src="./src/search.svg" alt="search button" />
-          <img
-            class="search-icon2"
-            src="./src/search2.svg"
-            alt="search button"
-          />
-        </a>
-      </div>
+      </div>  
     </header>
+    <div class="search-box">
+      <label for="search" class="label">
+        <input
+          placeholder=" Search Country name"
+          type="text"
+          id="country-name"
+          name="cname"
+      /></label>
+      <a class="search-btn">
+        <img src="./src/search.svg" alt="search button" />
+        <img
+          class="search-icon2"
+          src="./src/search2.svg"
+          alt="search button"
+        />
+      </a>
+    </div>
     <div id="Countrydiv">
       <h1 id="country_heading"></h1>
       <div class="country-data"></div>
@@ -95,6 +94,16 @@
         <div id="chart3-country" class="charts2"></div>
         <div id="chart4-country" class="charts2"></div>
       </div>
+      <div class="stateDiv hide">
+      <h1 id="state_heading"></h1>
+      <div class="state-data"></div>
+      <div class="chart-container chart-container-state">
+        <div id="chart-state" class="charts2"></div>
+        <div id="chart2-state" class="charts2"></div>
+        <div id="chart3-state" class="charts2"></div>
+        <div id="chart4-state" class="charts2"></div>
+      </div>
+    </div>
       <footer class="footer">
         <abbr title="Click to go to api used">
           <a href="https://github.com/novelcovid/api" target="_blank">
@@ -121,5 +130,6 @@
     <script src="countryChart.js"></script>
     <script src="cookie.js"></script>
     <script src="search-box.js"></script>
+    <script src="stateData.js"></script>
   </body>
 </html>

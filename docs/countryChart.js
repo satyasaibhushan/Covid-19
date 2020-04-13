@@ -3,11 +3,16 @@ let countryCharts = document.getElementsByClassName(
 )[0];
 
 let countryList = [];
-api.getCountriesList().then(list => {
-  autocomplete(document.getElementById("country-name"), list)
-  countryList = list
-}
-)
+let statesList = [];
+
+let inp = document.getElementById("country-name")
+
+Promise.all([
+  api.getCountriesList().then(list => { countryList = list; return list }),
+  api.getStates().then(list => { statesList = list; return list }),
+])
+.then(result => result.flat())
+.then(list => autocomplete(inp , list))
 .catch(console.log)
 
 GetData("china");

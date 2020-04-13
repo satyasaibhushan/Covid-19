@@ -97,7 +97,7 @@ header.header{
 
 }
 .world-data,
-.country-data {
+.country-data,.state-data {
   margin:2vh 0 2vh 0;
   height:10vh;
   display: grid;
@@ -109,7 +109,7 @@ header.header{
 }
 
 .world-data div,
-.country-data div {
+.country-data div ,.state-data div{
   justify-self: center;
   font-style:  italic;
   font-size: 1.7vmax;
@@ -120,15 +120,20 @@ header.header{
 }
 .country-data div{
   color: rgb(94, 93, 93);
+}.state-data {
+  margin-top: 5vh;
 }
 #Countrydiv{
   position: absolute;
   z-index: -1;
 }
+/* .stateDiv{
+  margin-top: 10vh;
+} */
 
 br {display:none}
 
-#country_heading, #world_heading{
+#country_heading, #world_heading , #state_heading{
   left: 50%;
   width:100%;
  display: flex;
@@ -147,6 +152,8 @@ br {display:none}
   transform: translate(0%,-40%);
   margin-top: 1vh;
   color:rgb(212, 151, 37) ;
+}#state_heading{
+  margin-top: 5vh;
 }
 .gotop {
   position: fixed;

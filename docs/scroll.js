@@ -5,8 +5,7 @@ window.addEventListener('load',function(){
 
 async function Smoothscroll(target, duration) {
   await waitFor(200)
-  
-  var target = document.querySelector(target);
+  target = document.querySelector(target);
   var targetPosition = target.getBoundingClientRect().top;
   var startPosition = window.pageYOffset;
   var distance = targetPosition - startPosition;
