@@ -104,7 +104,6 @@ function getDistrictTable(stateName){
          districtCount.innerHTML += `<span class='districtIncrease'>
          <img class = 'increaseArrow'src="./src/uparrow.svg" alt="increase arrow" />
          ${element['delta']['confirmed']}  </span>`
-        console.log(element['district'],element['confirmed'],element['delta']['confirmed'])
       });}
     })
 }
