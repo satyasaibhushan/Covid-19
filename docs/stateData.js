@@ -5,6 +5,7 @@ let stateCasesChart = document.getElementById("chart-state")
 let stateDeathChart = document.getElementById("chart2-state")
 let stateCasesDiffChart = document.getElementById("chart3-state")
 let stateDeathsDiffChart = document.getElementById("chart4-state")
+let stateTable = document.getElementsByClassName('stateTable')[0]
 
 
 let stateDataStruct = [
@@ -85,4 +86,23 @@ function getStateCharts(stateCode) {
       })
       .catch(console.log);
   }
-
+function getDistrictTable(stateName){
+  api.getDistrictData(stateName)
+    .then(data =>{
+      if(data){
+       stateTable.innerHTML = '' 
+       let tableHead= stateTable.insertRow(-1);
+       let districtHead = tableHead.insertCell(0)
+         districtHead.innerHTML = 'District';
+         let districtCountHead = tableHead.insertCell(1)
+         districtCountHead.innerHTML = "Confirmed Cases";
+      data.forEach(element => {
+         let tableRow = stateTable.insertRow(-1)
+         let districtName = tableRow.insertCell(0)
+         districtName.innerHTML = element['district'];
+         let districtCount = tableRow.insertCell(1)
+         districtCount.innerHTML = element['confirmed'];
+        console.log(element['district'],element['confirmed'],element['delta']['confirmed'])
+      });}
+    })
+}

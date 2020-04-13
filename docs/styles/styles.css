@@ -210,3 +210,18 @@ br {display:none}
 .footer abbr img{
   height:17px
 }
+
+.stateTable, .stateTable tr , .stateTable tr th ,.stateTable tr td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.stateTable{
+  position: relative;
+  width: 50vw;
+  left:25vw
+}
+.stateTable tr td{
+    text-align: center;
+    vertical-align: top;
+
+}

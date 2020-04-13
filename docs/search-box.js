@@ -6,38 +6,38 @@ let stateDiv = document.getElementsByClassName("stateDiv")[0];
 let changeState = {
   Maharashtra: "mh",
   Delhi: "dl",
-  "Tamil nadu": "tn",
+  "Tamil Nadu": "tn",
   Rajasthan: "rj",
-  "Madhya pradesh": "mp",
+  "Madhya Pradesh": "mp",
   Telangana: "tg",
   Gujarat: "gj",
-  "Uttar pradesh": "up",
-  "Andhra pradesh": "ap",
+  "Uttar Pradesh": "up",
+  "Andhra Pradesh": "ap",
   Kerala: "kl",
-  "Jammu and kashmir": "jk",
+  "Jammu And Kashmir": "jk",
   Karnataka: "ka",
   Haryana: "hr",
   Punjab: "pb",
-  "West bengal": "wb",
+  "West Bengal": "wb",
   Bihar: "br",
   Odisha: "or",
   Uttarakhand: "ut",
-  "Himachal pradesh": "hp",
+  "Himachal Pradesh": "hp",
   Assam: "as",
   Chhattisgarh: "ct",
   Chandigarh: "ch",
   Jharkhand: "jh",
   Ladakh: "la",
-  "Andaman and nicobar islands": "an",
+  "Andaman And Nicobar Islands": "an",
   Goa: "ga",
   Puducherry: "py",
   Manipur: "mn",
   Tripura: "tr",
   Mizoram: "mz",
-  "Arunachal pradesh": "ar",
-  "Dadra and nagar haveli": "dn",
+  "Arunachal Pradesh": "ar",
+  "Dadra And Nagar Haveli": "dn",
   Nagaland: "nl",
-  "Daman and Diu": "dd",
+  "Daman And Diu": "dd",
   Lakshadweep: "ld",
   Meghalaya: "ml",
   Sikkim: "sk",
@@ -78,13 +78,17 @@ function SearchArray(element, array) {
 }
 
 function clicked() {
-  let name =
-      Country_text.value.charAt(0).toUpperCase() +
-      Country_text.value.slice(1).toLowerCase();
+  name = Country_text.value.toLowerCase()
+    .split(' ')
+    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(' ');
+    
   if (changeState[name]) {
     stateCode = changeState[name];
     getStateCharts(stateCode);
     getStateTotals(stateCode);
+     name = name.replace(/ And/g, " and");
+    getDistrictTable(name)
     Smoothscroll(".stateDiv", 750);
     Country_text.blur();
     cookie(name);
@@ -94,6 +98,7 @@ function clicked() {
     GetData("india");
     Gettotals("india");
   } else if (SearchArray(Country_text.value, countryList) != -1) {
+        name = name.replace(/ And/g, " and");
     GetData(name);
     Gettotals(name);
     Smoothscroll("#Countrydiv", 750);

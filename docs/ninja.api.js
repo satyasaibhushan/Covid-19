@@ -237,6 +237,23 @@ const api = {
       );
     });
   },
+ 
+  getDistrictData(stateCode){
+    return new Promise((resolve, reject) => {
+      fetch("https://api.covid19india.org/v2/state_district_wise.json")
+        .then((res) =>
+          res
+            .json()
+            .then(x=> {x.forEach(element => {
+                if(element.state == stateCode) 
+                x = element
+            })
+            resolve(x.districtData)
+          })
+        )
+        .catch(reject);
+    });
+  },
 
   getStates(){
     return new Promise((resolve, reject) => {
@@ -254,4 +271,4 @@ const api = {
   },
 };
 
-// api.getStatesChartData('ap')
+
