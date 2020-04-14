@@ -42,6 +42,18 @@ header.header{
   border-radius: 10px;
 }
 
+.goBack {
+  position: fixed;
+  bottom: 14vh;
+  right: 1vw;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 50%;
+  color:gray;
+  height: 4vmax;
+  transition: all 1s ;
+  cursor: pointer;
+}
 .loader{
   position: fixed;
   z-index: 999;

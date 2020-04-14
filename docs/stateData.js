@@ -3,8 +3,6 @@ getStateCharts('ap')
 
 let stateCasesChart = document.getElementById("chart-state")
 let stateDeathChart = document.getElementById("chart2-state")
-let stateCasesDiffChart = document.getElementById("chart3-state")
-let stateDeathsDiffChart = document.getElementById("chart4-state")
 let stateTable = document.getElementsByClassName('stateTable')[0]
 
 

@@ -1,6 +1,9 @@
 window.addEventListener('load',function(){
   let loader = document.getElementsByClassName('loader')[0];
   loader.classList.add('hidden');
+  setInterval(() => {
+    loader.innerHTML=""
+  }, 3000);
 })
 
 async function Smoothscroll(target, duration) {
@@ -35,12 +38,26 @@ let topBtn = document.getElementsByClassName("gotop")[0];
 topBtn.addEventListener("click", function() {
   Smoothscroll(".header", 800);
 });
+let goBackBtn = document.getElementsByClassName("goBack")[0];
+goBackBtn.addEventListener("click", function() {
+  Smoothscroll(".header", 800);
+document.getElementsByClassName("head")[0].classList.remove("hide");
+document.getElementsByClassName("stateDiv")[0].classList.add("hide");
+});
 window.onscroll = function() {
   if (window.scrollY > 250) {
     topBtn.classList.remove("hidebtn");
   } else {
     topBtn.classList.add("hidebtn");
   }
+  if(document.getElementsByClassName("head")[0].classList.contains('hide')){
+    if(window.scrollY<750) goBackBtn.classList.remove("hidebtn");
+    else goBackBtn.classList.add("hidebtn");
+  }
+  else{
+    goBackBtn.classList.add("hidebtn");
+  }
+     
 };
 
 function waitFor(time) {

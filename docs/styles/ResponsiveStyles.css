@@ -42,7 +42,7 @@
     }
   }
   
-  @media screen and (max-device-height:580px) and (min-device-height:320px){
+  @media screen and (max-device-height:580px) and (min-device-height:0px){
     
     .sticker{
       height: 7.5vh;
@@ -95,6 +95,10 @@
       right:3vw;
       height: 8vmin;
     }
+    .goBack {
+      right:3vw;
+      height: 8vmin;
+    }
     .footer{
       height:13vh;
       padding: 1vh 0 1vh 0;
@@ -118,7 +122,7 @@
     }
   }
 
-  @media screen and (max-device-width:580px) and (min-device-width:320px) and (orientation : portrait){
+  @media screen and (max-device-width:580px) and (min-device-width:0px) and (orientation : portrait){
     .sticker{
       height: 6vh;
       width:45vw;
@@ -177,6 +181,11 @@
       right:3vw;
       height: 8vmin;
     }
+    .goBack {
+      right:3vw;
+      height: 8vmin;
+    }
+
     .footer{
       font-size: 2vh;
       /* grid-template-columns: 5fr  2fr 1fr 2fr 5fr; */
