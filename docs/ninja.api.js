@@ -38,7 +38,7 @@ const api = {
 
   getWorldChartData() {
     return new Promise((resolve, reject) => {
-      fetch("https://corona.lmao.ninja/v2/historical/all")
+      fetch("https://corona.lmao.ninja/v2/historical/all?lastdays=all")
         .then((res) => {
           return res
             .json()
@@ -151,7 +151,7 @@ const api = {
       fetch("https://api.covid19india.org/data.json").then((data) =>
         data
           .json()
-          .then((x) => x.cases_time_series)
+          .then((x) => x.statewise)
           .then((data) => {
             let length = data.length
             let x = {
@@ -162,12 +162,12 @@ const api = {
               todayCases : [],
               todayDeaths : []
             };
-              let { dailyconfirmed, dailydeceased, totalrecovered, totalconfirmed, totaldeceased  } = data[length-1]
-              x.todayCases.push(parseInt(dailyconfirmed));
-              x.todayDeaths.push(parseInt(dailydeceased));
-              x.recovered.push(parseInt(totalrecovered));
-              x.cases.push(parseInt(totalconfirmed));
-              x.deaths.push(parseInt(totaldeceased));
+              let { deltaconfirmed, deaths, recovered, confirmed, deltadeaths  } = data[0]
+              x.todayCases.push(parseInt(deltaconfirmed));
+              x.todayDeaths.push(parseInt(deltadeaths));
+              x.recovered.push(parseInt(recovered));
+              x.cases.push(parseInt(confirmed));
+              x.deaths.push(parseInt(deaths));
               x.active.push(x.cases-x.deaths-x.recovered);
               resolve(x);
           })
