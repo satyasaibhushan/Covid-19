@@ -25,7 +25,7 @@ let jsonErrorMessage = "unable to convert to json";
 const api = {
   getWorldData() {
     return new Promise((resolve, reject) => {
-      fetch("https://corona.lmao.ninja/all")
+      fetch("https://corona.lmao.ninja/v2/all")
         .then((res) => {
           return res
             .json()
@@ -64,7 +64,7 @@ const api = {
       return api.getIndiaData();
     }
     return new Promise((resolve, reject) => {
-      fetch(`https://corona.lmao.ninja/countries/${countryName}`).then((res) =>
+      fetch(`https://corona.lmao.ninja/v2/countries/${countryName}`).then((res) =>
         res
           .json()
           .then(resolve)
@@ -107,7 +107,7 @@ const api = {
 
   getCountriesList() {
     return new Promise((resolve, reject) => {
-      fetch("https://corona.lmao.ninja/countries")
+      fetch("https://corona.lmao.ninja/v2/countries")
         .then((res) =>
           res
             .json()
