@@ -119,7 +119,7 @@ const api = {
   },
   getIndiaChartData() {
     return new Promise((resolve, reject) => {
-      fetch("https://api.covid19india.org/data.json").then((data) =>
+      fetch("https://data.covid19india.org/data.json").then((data) =>
         data
           .json()
           .then((x) => x.cases_time_series)
@@ -148,7 +148,7 @@ const api = {
 
   getIndiaData() {
     return new Promise((resolve, reject) => {
-      fetch("https://api.covid19india.org/data.json").then((data) =>
+      fetch("https://data.covid19india.org/data.json").then((data) =>
         data
           .json()
           .then((x) => x.statewise)
@@ -177,7 +177,7 @@ const api = {
   getStatesChartData (stateCode){
 
     return new Promise((resolve, reject) => {
-      fetch("https://api.covid19india.org/states_daily.json")
+      fetch("https://data.covid19india.org/states_daily.json")
         .then((res) =>
           res
             .json()
@@ -207,7 +207,7 @@ const api = {
   
   getStateData(stateCode) {
     return new Promise((resolve, reject) => {
-      fetch("https://api.covid19india.org/data.json").then((res) =>
+      fetch("https://data.covid19india.org/data.json").then((res) =>
         res
           .json()
           .then(res => res.statewise )
@@ -240,7 +240,7 @@ const api = {
  
   getDistrictData(stateCode){
     return new Promise((resolve, reject) => {
-      fetch("https://api.covid19india.org/v2/state_district_wise.json")
+      fetch("https://data.covid19india.org/v2/state_district_wise.json")
         .then((res) =>
           res
             .json()
@@ -257,7 +257,7 @@ const api = {
 
   getStates(){
     return new Promise((resolve, reject) => {
-      fetch("https://api.covid19india.org/data.json")
+      fetch("https://data.covid19india.org/data.json")
         .then((res) =>
           res
             .json()
